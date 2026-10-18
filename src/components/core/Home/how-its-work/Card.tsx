@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import { ArrowUpRight } from "lucide-react";
 
 interface CardProps {
   id: number;
@@ -13,69 +14,57 @@ const Card = ({ id, title, description, image }: CardProps) => {
 
   return (
     <article
-      className={`group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/6 bg-linear-to-b from-neutral-900/80 to-neutral-950/90 p-5 shadow-2xl transition-all duration-500 ease-out select-none hover:-translate-y-3 hover:border-cyan-500/30 hover:shadow-[0_20px_50px_-12px_rgba(6,182,212,0.15)] active:scale-[0.99] ${
-        isOffset ? "md:translate-y-6 lg:translate-y-12" : ""
+      className={`group border-border/70 bg-card/50 hover:border-primary/30 hover:shadow-primary/5 relative flex h-full flex-col overflow-hidden rounded-2xl border p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1.5 hover:shadow-xl motion-reduce:transform-none motion-reduce:transition-none sm:rounded-3xl sm:p-5 ${
+        isOffset ? "lg:translate-y-8" : ""
       }`}
     >
-      {/* Background Interactive Mesh (Halka sa depth dene ke liye) */}
-      <div className="absolute top-0 right-0 -z-10 h-32 w-32 rounded-full bg-cyan-500/10 blur-3xl transition-all duration-700 group-hover:scale-150 group-hover:bg-purple-500/15" />
+      {/* Soft background glow */}
+      <div className="bg-primary/5 pointer-events-none absolute -top-12 -right-12 size-36 rounded-full blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Main Content Wrapper */}
-      <div className="flex flex-col">
-        {/* Top Header Section */}
-        <div className="mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="bg-linear-to-r from-cyan-400 to-purple-400 bg-clip-text font-mono text-xs font-bold tracking-widest text-transparent uppercase">
-              Project
-            </span>
-            <span className="font-mono text-2xl font-black tracking-tighter text-white/20 transition-all duration-300 group-hover:text-cyan-400/40">
-              {String(id).padStart(2, "0")}
-            </span>
-          </div>
+      <div className="relative flex items-center justify-between">
+        <span className="text-muted-foreground text-[11px] font-semibold tracking-[0.18em] uppercase">
+          How it works
+        </span>
 
-          {/* Futuristic Corner Arrow Accent */}
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-white/4 bg-white/2 text-neutral-500 transition-all duration-300 group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 group-hover:text-cyan-400">
-            <svg
-              xmlns="http://w3.org"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2.5}
-              stroke="currentColor"
-              className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
-          </div>
+        <span className="text-muted-foreground/60 group-hover:text-primary font-mono text-xl font-bold tracking-tight transition-colors duration-300">
+          {String(id).padStart(2, "0")}
+        </span>
+      </div>
+
+      {/* Image */}
+      <div className="border-border/60 bg-muted relative mt-5 aspect-16/10 w-full overflow-hidden rounded-xl border sm:rounded-2xl">
+        <Image
+          src={image}
+          alt={title}
+          title={title}
+          fill
+          sizes="(max-width: 639px) 90vw, (max-width: 1023px) 45vw, 25vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transform-none motion-reduce:transition-none"
+          priority={id === 1}
+        />
+
+        <div className="from-background/20 pointer-events-none absolute inset-0 bg-linear-to-t to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-20" />
+      </div>
+
+      {/* Content */}
+      <div className="relative mt-5 flex flex-1 flex-col">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-foreground group-hover:text-primary text-lg font-semibold tracking-tight transition-colors duration-300 sm:text-xl">
+            {title}
+          </h3>
+
+          <ArrowUpRight className="text-muted-foreground/60 group-hover:text-primary mt-0.5 size-4 shrink-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </div>
 
-        {/* Premium Image Container */}
-        <div className="relative mb-5 aspect-16/10 w-full overflow-hidden rounded-xl border border-white/8 bg-neutral-950 sm:aspect-4/3">
-          <Image
-            src={image}
-            alt={title}
-            title={`${title} image`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="pointer-events-none object-cover transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105"
-            priority={id <= 2}
-          />
-        </div>
-
-        {/* Text Section */}
-        <h3 className="mb-2 text-xl font-bold tracking-tight text-white/95 transition-colors duration-300 group-hover:text-cyan-400">
-          {title}
-        </h3>
-        <p className="line-clamp-3 text-sm leading-relaxed font-normal text-neutral-400">
+        <p className="text-muted-foreground mt-2 line-clamp-3 text-sm leading-6">
           {description}
         </p>
       </div>
 
-      {/* Decorative Bottom Accent Bar */}
-      <div className="mt-5 h-0.5 w-0 bg-linear-to-r from-cyan-500 via-purple-500 to-transparent transition-all duration-500 ease-out group-hover:w-full" />
+      {/* Accent */}
+      <div className="bg-border relative mt-5 h-px w-full overflow-hidden">
+        <div className="bg-primary absolute inset-y-0 left-0 w-0 transition-all duration-500 ease-out group-hover:w-full" />
+      </div>
     </article>
   );
 };

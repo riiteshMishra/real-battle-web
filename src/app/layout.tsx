@@ -10,6 +10,7 @@ import Navbar from "../components/common/navbar/Navbar";
 import { Toaster } from "sonner";
 import RootProviders from "../providers/Index";
 import { cn } from "@/lib/utils";
+import MobileBottomNav from "../components/common/navbar/MobileBottomNav";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <RootProviders>
           <Navbar />
           {children}
+          <MobileBottomNav />
         </RootProviders>
       </body>
     </html>

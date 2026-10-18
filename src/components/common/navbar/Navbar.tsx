@@ -1,7 +1,6 @@
 import Downloadbtn from "../Download";
 import Logo from "../Logo";
 import ThemeToggler from "../ThemeToggler";
-import Burger from "./Burger";
 import List from "./List";
 
 const Navbar = () => {
@@ -14,8 +13,6 @@ const Navbar = () => {
           <div className="flex items-center gap-x-2">
             <Downloadbtn />
             <ThemeToggler />
-            {/* <AccountMenu /> */}
-            <Burger />
           </div>
         </nav>
       </div>
