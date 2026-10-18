@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import { Provider as ReduxProvider } from "react-redux";
 import store from "../store/store";
-import AuthInitializer from "./AuthInitializer";
 
 // TANSTACK QUERY SETUP
 const createQueryClient = () =>
@@ -24,7 +23,6 @@ const RootProviders = ({ children }: PropsWithChildren) => {
 
   return (
     <ReduxProvider store={store}>
-      <AuthInitializer />
       <ThemeProvider
         attribute="class"
         defaultTheme="light"

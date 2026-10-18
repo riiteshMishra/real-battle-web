@@ -1,27 +1,30 @@
 import LeftSection from "./left/left-section";
-import RightSection from "./right/right-section";
 
 const HomeHero = () => {
   return (
-    <div id="home" className="md:20 py-10 sm:py-15 lg:py-24">
-      <div className="container mx-auto flex grid-cols-1 flex-col items-center justify-center gap-12 px-4 sm:grid lg:grid-cols-2">
+    <section
+      id="home"
+      className="relative isolate overflow-hidden py-10 sm:py-14 lg:py-16"
+    >
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="bg-primary/10 absolute top-10 left-1/2 size-72 -translate-x-1/2 rounded-full blur-[120px]" />
+        <div className="bg-primary/5 absolute right-0 bottom-0 size-64 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <LeftSection
-          title="India's fastest growing tournament platefom"
+          className="items-center text-center"
+          title="India's Fastest-Growing Tournament Platform"
           highlightText="Real Battle"
-          description="Join Daily Tournaments, Compete With Skilled Players, Win Exciting Rewards And Experience Professional Esports From Your Mobile."
+          description="Join daily tournaments, compete with skilled players, win exciting rewards, and experience professional esports from your mobile."
           primaryButtonText="Download App"
           primaryButtonLink="/download"
           secondaryButtonText="How It Works"
           secondaryButtonLink="#how-it-works"
           badges={["Instant Payouts", "Fair Play", "24/7 Support"]}
         />
-
-        <RightSection
-          // imageSrc="/images/hero-cyber-league.png" // apna image path
-          imageAlt="Cyber League Championship"
-        />
       </div>
-    </div>
+    </section>
   );
 };
 
