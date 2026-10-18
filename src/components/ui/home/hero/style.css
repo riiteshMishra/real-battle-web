@@ -1,0 +1,53 @@
+.hero-section {
+  background-color: #0b0d18;
+  background-image: url("../../../../assets/hero-section-decs.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Mobile background image */
+@media screen and (max-width: 640px) {
+  .hero-section {
+    background-image: url("../../../../assets/hero-section-mobi.jpg");
+    background-position: center;
+  }
+}
+
+/* Darken the image without affecting content */
+#hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 9, 20, 0.48) 0%,
+      rgba(7, 9, 20, 0.58) 45%,
+      rgba(7, 9, 20, 0.88) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(7, 9, 20, 0.28) 0%,
+      transparent 50%,
+      rgba(7, 9, 20, 0.28) 100%
+    );
+}
+
+/* Respect reduced-motion preferences if animations are added later */
+@media (max-width: 640px) {
+  #hero-section {
+    background-position: center;
+  }
+
+  #hero-section::before {
+    background: linear-gradient(
+      180deg,
+      rgba(7, 9, 20, 0.66) 0%,
+      rgba(7, 9, 20, 0.76) 55%,
+      rgba(7, 9, 20, 0.94) 100%
+    );
+  }
+}

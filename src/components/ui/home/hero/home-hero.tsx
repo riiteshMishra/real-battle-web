@@ -1,18 +1,20 @@
 import LeftSection from "./left/left-section";
+import "./style.css";
 
 const HomeHero = () => {
   return (
     <section
       id="home"
-      className="relative isolate overflow-hidden py-10 sm:py-14 lg:py-16"
+      className="hero-section relative isolate overflow-hidden py-10 sm:py-14 lg:py-27"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="bg-primary/10 absolute top-10 left-1/2 size-72 -translate-x-1/2 rounded-full blur-[120px]" />
         <div className="bg-primary/5 absolute right-0 bottom-0 size-64 rounded-full blur-[100px]" />
       </div>
 
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8">
         <LeftSection
+          variant="hero"
           className="items-center text-center"
           title="India's Fastest-Growing Tournament Platform"
           highlightText="Real Battle"
