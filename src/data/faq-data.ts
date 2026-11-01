@@ -12,182 +12,96 @@ export interface FAQ {
     | "account";
 }
 
+/**
+ * Answers are written to match the policies currently published on the site
+ * (Terms, Refund Policy and Privacy Policy). Do not add payout promises,
+ * response-time guarantees or security claims that are not verifiable.
+ */
 export const faqData: FAQ[] = [
   {
     id: 1,
     category: "general",
-    question: "What is Realbattle?",
+    question: "What is Real Battle?",
     answer:
-      "Realbattle is India's most trusted Free Fire tournament platform. Join daily tournaments, compete with skilled players, win exciting rewards, and experience professional esports from your mobile. We offer instant payouts, transparent results, and a secure gaming environment.",
+      "Real Battle is a competitive Free Fire tournament platform built for Indian players. You can browse solo, squad and Clash Squad events, register through the app, get room details, and track verified results. Tournament formats, entry fees and reward rules are published before you join.",
   },
   {
     id: 2,
-    category: "general",
-    question: "How does Realbattle work?",
-    answer:
-      "Simple process: browse tournaments, join your preferred tournament, compete in the match, submit results, and win rewards. Once results are verified, your prize is instantly credited to your wallet.",
-  },
-  {
-    id: 3,
-    category: "general",
-    question: "Is Realbattle available on mobile?",
-    answer:
-      "Yes! Realbattle is fully optimized for mobile gaming. Access tournaments, check match details, track your performance, and manage withdrawals directly from your mobile device.",
-  },
-  {
-    id: 4,
-    category: "tournaments",
-    question: "How can I find a tournament?",
-    answer:
-      "Browse our active tournaments section to see daily tournaments filtered by game mode, entry fee, prize pool, and schedule. Each tournament shows complete details including rules, scoring system, and participant count.",
-  },
-  {
-    id: 5,
     category: "tournaments",
     question: "How do I join a tournament?",
     answer:
-      "Open the tournament, review the rules and entry requirements, ensure you have sufficient balance in your wallet, and click 'Join Tournament'. You'll receive match details and can participate at the scheduled time.",
+      "Tournaments page se apna format choose karo, match details aur rules padho, aur app mein register karo. Registration ke waqt entry fee (agar applicable ho) aur eligibility clearly dikhaye jaate hain. Slot confirm hone ke baad match schedule follow karo.",
+  },
+  {
+    id: 3,
+    category: "matches",
+    question: "How do I get the Room ID and Password?",
+    answer:
+      "Registration complete hone ke baad Room ID aur Password app ke dashboard mein match ke liye release hote hain. Match se pehle app check karo — credentials sirf registered players ke liye hote hain, public channels par share nahi kiye jaate.",
+  },
+  {
+    id: 4,
+    category: "matches",
+    question: "How are match results verified?",
+    answer:
+      "Results tournament ke format ke hisaab se verify hote hain. Players ko screenshots, recordings, match results ya UID proof submit karna pad sakta hai. Admin available evidence review karta hai aur required case mein score adjust, match reverse ya entry disqualify kar sakta hai.",
+  },
+  {
+    id: 5,
+    category: "rewards",
+    question: "How do rewards work?",
+    answer:
+      "Har tournament ka prize pool, per-kill reward, Booyah bonus aur placement split us match ke rules mein mention hota hai. Eligible players ko verification ke baad rewards milte hain. Amounts tournament-specific hote hain — koi fixed ya guaranteed earning promise nahi hai.",
   },
   {
     id: 6,
-    category: "tournaments",
-    question: "What types of tournaments are available?",
+    category: "wallet",
+    question: "How can I withdraw eligible rewards?",
     answer:
-      "Realbattle offers multiple formats: solo battles, duo tournaments, squad championships, special events, and seasonal competitions. Each tournament has its own unique scoring system and prize structure.",
+      "App ke wallet section mein available balance, withdrawal options aur minimum limits check karo. Withdrawal se pehle identity, age aur payment details ki verification ho sakti hai. Processing time aur applicable conditions wallet screen par dikhaye jaate hain.",
   },
   {
     id: 7,
-    category: "tournaments",
-    question: "Which games are supported?",
+    category: "general",
+    question: "Is Real Battle available in every state?",
     answer:
-      "Free Fire is currently available on Realbattle with multiple game modes and tournaments running daily. Additional games are planned for future expansion as we grow the platform.",
+      "Availability state aur tournament ke hisaab se vary kar sakti hai. Kuch events mein location, age ya identity requirements ho sakti hain. Join karne se pehle us tournament ki eligibility aur applicable local rules zaroor check karo.",
   },
   {
     id: 8,
-    category: "tournaments",
-    question: "Can I see the tournament rules before joining?",
+    category: "account",
+    question: "Is there an age requirement?",
     answer:
-      "Absolutely! Each tournament displays complete information including format (kills, placement, or combined scoring), schedule, entry requirements, participant limits, and detailed rules. Review all details before joining.",
+      "Real Battle is intended for players aged 18 and above, unless a specific tournament states a different permitted age with the required safeguards. You must meet the eligibility shown for the platform and for the event you join. Participation must be lawful in your location.",
   },
   {
     id: 9,
-    category: "matches",
-    question: "How do I participate in a match?",
+    category: "tournaments",
+    question: "What happens if a match is cancelled?",
     answer:
-      "After joining a tournament, check your match lobby details including match time, opponent information, and server details. Ensure you're ready at the scheduled time and follow all tournament rules during the match.",
+      "Agar match cancel ya postpone hota hai, affected players ko app aur registered contact channel ke through update milta hai. Entry fee ka treatment Refund Policy ke according hota hai — eligible cases mein refund ya credit process kiya jaata hai.",
   },
   {
     id: 10,
-    category: "matches",
-    question: "How are match results recorded?",
+    category: "support",
+    question: "How can I contact support?",
     answer:
-      "Results are automatically synced through in-game data or manually submitted based on tournament type. Our system verifies results in real-time and updates leaderboards instantly.",
+      "Account, tournament, payment ya dispute ke liye app ka support channel use karo, ya realbattleofficial@gmail.com par email bhejo. Match ID, tournament name aur relevant screenshots include karna fastest resolution mein help karta hai.",
   },
   {
     id: 11,
-    category: "matches",
-    question: "How are winners determined?",
+    category: "general",
+    question: "Where can I download the Android app?",
     answer:
-      "Winners are determined by the tournament's scoring system: kills only, placement only, or combined scoring. Final rankings are calculated based on accumulated points across all tournament matches.",
+      "The official download page is realbattle.in/download. The APK link is published only after the production build is verified. Real Battle does not ask you to install files from unofficial mirrors, Telegram forwards or shortened links.",
   },
   {
     id: 12,
-    category: "matches",
-    question: "What happens if there is a dispute about a result?",
-    answer:
-      "Open a support ticket directly from the platform with match details and your concern. Our 24/7 support team reviews disputes within hours and resolves them according to tournament rules. You can also view ticket history and resolution status anytime.",
-  },
-  {
-    id: 13,
-    category: "rewards",
-    question: "How do tournament rewards work?",
-    answer:
-      "Each tournament has a prize pool distributed among top performers. Rewards are credited instantly to your wallet once results are verified. Prize amounts vary based on tournament entry fees and participant count.",
-  },
-  {
-    id: 14,
-    category: "rewards",
-    question: "When do winners receive their rewards?",
-    answer:
-      "Rewards are instantly credited to your wallet after match results are verified and tournament ends. No waiting—check your wallet immediately for instant payouts.",
-  },
-  {
-    id: 15,
-    category: "rewards",
-    question: "Where can I check my rewards?",
-    answer:
-      "View all your rewards, earnings, and transaction history in the Wallet section of your profile. You'll see real-time balance, transaction details, and withdrawal status.",
-  },
-  {
-    id: 16,
-    category: "wallet",
-    question: "How do I deposit money into my wallet?",
-    answer:
-      "Open Wallet section, click 'Add Balance', and choose your payment method. We support multiple payment options including cards, UPI, and digital wallets. Deposits are instant.",
-  },
-  {
-    id: 17,
-    category: "wallet",
-    question: "How can I withdraw my winnings?",
-    answer:
-      "Go to Wallet → Withdraw, enter the amount, and confirm your bank account details. Minimum withdrawal amount applies. Withdrawals are processed within 24-48 hours to your bank account.",
-  },
-  {
-    id: 18,
-    category: "wallet",
-    question: "Is my wallet secure?",
-    answer:
-      "Yes! Realbattle uses bank-grade encryption for all transactions. Your wallet is protected with 2FA (two-factor authentication), and all payments are verified through secure gateways.",
-  },
-  {
-    id: 19,
     category: "account",
-    question: "Do I need an account to participate?",
+    question: "Can I use an emulator or a modified game client?",
     answer:
-      "Yes. Create a free account using your phone number or email. Account creation is instant and required to track tournaments, manage rewards, and process withdrawals securely.",
-  },
-  {
-    id: 20,
-    category: "account",
-    question: "Can I track my tournament history?",
-    answer:
-      "Yes! Your profile shows complete tournament history, match results, earnings, and performance statistics. Track your improvement over time and compete on global leaderboards.",
-  },
-  {
-    id: 21,
-    category: "account",
-    question: "Can I see my leaderboard position?",
-    answer:
-      "Absolutely! View global and seasonal leaderboards to see your rank, MMR rating, total winnings, and how you compare with other players. Leaderboards update in real-time.",
-  },
-  {
-    id: 22,
-    category: "support",
-    question: "What should I do if I face a technical issue?",
-    answer:
-      "Open the Support section in app, click 'Create Ticket', describe the issue, and attach relevant details. Our support team responds within 30 minutes. You can track ticket status anytime.",
-  },
-  {
-    id: 23,
-    category: "support",
-    question: "How can I contact Realbattle support?",
-    answer:
-      "Use the in-app support ticket system available 24/7. Open the Support section, submit your issue with relevant details (tournament name, match ID, screenshots), and our team will assist you immediately.",
-  },
-  {
-    id: 24,
-    category: "support",
-    question: "What happens if I disconnect during a match?",
-    answer:
-      "Disconnections are handled based on tournament rules. If a technical issue affects your match, open a support ticket immediately with match details. Our support team can review and assist if necessary.",
-  },
-  {
-    id: 25,
-    category: "support",
-    question: "How fast is Realbattle support?",
-    answer:
-      "Realbattle offers 24/7 support with live admins. Most disputes and technical issues are resolved within hours. Critical issues like payment failures are prioritized and handled within 30 minutes.",
+      "Tournament rules decide device and client eligibility. Modified clients, hacks, scripts and unauthorised third-party tools are prohibited. Some events may restrict emulator players or require a specific game version — check the event rules before registering.",
   },
 ];
 
-export const homepageFaqData = faqData.slice(0, 7);
+export const homepageFaqData = faqData.slice(0, 8);

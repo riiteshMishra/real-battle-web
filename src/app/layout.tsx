@@ -1,67 +1,55 @@
-import type { Metadata } from "next";
-import {
-  Bricolage_Grotesque,
-  Roboto,
-  Geist,
-  Stack_Sans_Headline,
-} from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/common/navbar/Navbar";
 import { Toaster } from "sonner";
 import RootProviders from "../providers/Index";
 import { cn } from "@/lib/utils";
-import MobileBottomNav from "../components/common/navbar/MobileBottomNav";
+import Navbar from "../components/common/navbar/Navbar";
+import { siteConfig } from "@/src/config/site";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
 });
 
-const roboto = Roboto({
-  variable: "--font-roboto",
+const dmSans = DM_Sans({
   subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
 });
 
-const headline = Stack_Sans_Headline({
-  variable: "--font-headline",
-  subsets: ["latin"],
-  adjustFontFallback: false,
-});
-
-// META - DATA
 export const metadata: Metadata = {
-  metadataBase: new URL("https://realbattle.in"),
+  metadataBase: new URL(siteConfig.url),
 
   title: {
-    default: "Real Battle — Compete, Play & Win",
+    default: "Real Battle — India's Competitive Free Fire Arena",
     template: "%s | Real Battle",
   },
 
-  description:
-    "Join Real Battle tournaments, compete with players, play your favorite games, and win exciting rewards.",
+  description: siteConfig.description,
 
   keywords: [
     "Real Battle",
-    "gaming tournaments",
-    "online gaming tournaments",
-    "esports tournaments",
     "Free Fire tournaments",
-    "gaming competition",
-    "win rewards",
+    "Free Fire MAX tournaments",
+    "Indian esports",
+    "solo tournament",
+    "squad tournament",
+    "clash squad",
+    "gaming tournaments India",
+    "esports arena",
   ],
 
-  applicationName: "Real Battle",
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "gaming",
 
-  authors: [
-    {
-      name: "Real Battle",
-    },
-  ],
-
-  creator: "Real Battle",
-  publisher: "Real Battle",
+  alternates: {
+    canonical: "/",
+  },
 
   robots: {
     index: true,
@@ -78,42 +66,82 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    title: "Real Battle — Compete, Play & Win",
+    url: "/",
+    siteName: siteConfig.name,
+    title: "Real Battle — Game Khelo. Battle Jeeto.",
     description:
-      "Join tournaments, compete with players and win exciting rewards with Real Battle.",
-    siteName: "Real Battle",
+      "India's competitive gaming arena for Free Fire. Join solo, squad and Clash Squad tournaments, get room details in the app, and track verified results.",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Real Battle — Compete, Play & Win",
+    title: "Real Battle — Game Khelo. Battle Jeeto.",
     description:
-      "Join tournaments, compete and win exciting rewards with Real Battle.",
+      "Competitive Free Fire tournaments for Indian players. Solo, squad and Clash Squad battles in one arena.",
+  },
+
+  formatDetection: {
+    telephone: false,
   },
 };
 
-// ROOT - LAYOUT
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#08080D",
+  colorScheme: "dark",
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      email: siteConfig.email,
+      logo: `${siteConfig.url}/icon.svg`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.name,
+      description: siteConfig.description,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${siteConfig.url}/#organization` },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       suppressHydrationWarning
-      className={cn(
-        "h-full",
-        "antialiased",
-        roboto.variable,
-        headline.variable,
-        bricolage.variable,
-        "font-sans",
-        geist.variable,
-      )}
+      className={cn("h-full", spaceGrotesk.variable, dmSans.variable)}
     >
-      <body>
-        <Toaster position="top-right" />
+      <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+
+        <a
+          href="#main-content"
+          className="bg-accent text-accent-foreground fixed top-3 left-3 z-[200] -translate-y-24 rounded-lg px-4 py-2 text-sm font-semibold transition-transform focus:translate-y-0"
+        >
+          Skip to content
+        </a>
+
+        <Toaster position="top-right" theme="dark" richColors />
+
         <RootProviders>
           <Navbar />
-          {children}
-          <MobileBottomNav />
+          <div id="main-content" tabIndex={-1} className="outline-none">
+            {children}
+          </div>
         </RootProviders>
       </body>
     </html>

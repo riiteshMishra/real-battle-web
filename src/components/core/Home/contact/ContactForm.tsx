@@ -19,6 +19,7 @@ import {
 } from "@/src/lib/contact/validations";
 
 import { sendMessage } from "@/src/services/oprations/contact/contact-api";
+import { siteConfig } from "@/src/config/site";
 
 import { Input } from "@/src/components/common/shadcn/input";
 import { Textarea } from "@/src/components/common/shadcn/textarea";
@@ -74,13 +75,16 @@ export default function ContactForm() {
 
       setStatus({
         type: "error",
-        message: "Something went wrong. Please try again in a moment.",
+        message: `Something went wrong. Please try again, or email ${siteConfig.email}.`,
       });
     }
   };
 
   return (
-    <div className="border-foreground/10 bg-background/60 relative overflow-hidden rounded-3xl border p-6 shadow-[0_20px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl sm:p-8 lg:col-span-3">
+    <div
+      id="support"
+      className="border-foreground/10 bg-background/60 relative scroll-mt-28 overflow-hidden rounded-3xl border p-6 shadow-[0_20px_70px_rgba(0,0,0,0.08)] backdrop-blur-xl sm:p-8 lg:col-span-3"
+    >
       {/* DECORATIVE GLOW */}
       <div className="bg-accent/10 pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full blur-3xl" />
 
@@ -98,14 +102,16 @@ export default function ContactForm() {
           </h2>
 
           <p className="text-foreground/55 mt-2 max-w-lg text-sm leading-6">
-            Have a question, feedback, or need help? Fill out the form and our
-            team will get back to you.
+            Have a question, feedback, or need help? Fill out the form and the
+            support team will review it.
           </p>
         </div>
 
         {/* STATUS */}
         {status.type !== "idle" && (
           <div
+            role={status.type === "error" ? "alert" : "status"}
+            aria-live={status.type === "error" ? "assertive" : "polite"}
             className={`mb-6 flex items-start gap-3 rounded-xl border p-4 text-sm ${
               status.type === "success"
                 ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
@@ -140,13 +146,14 @@ export default function ContactForm() {
                   placeholder="Your name"
                   disabled={isSubmitting}
                   aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                   className="h-11 pl-10 placeholder:text-sm"
                   {...register("name")}
                 />
               </div>
 
               {errors.name && (
-                <p className="mt-1.5 text-xs text-red-500">
+                <p id="name-error" className="mt-1.5 text-xs text-red-500">
                   {errors.name.message}
                 </p>
               )}
@@ -167,13 +174,14 @@ export default function ContactForm() {
                   placeholder="you@example.com"
                   disabled={isSubmitting}
                   aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? "email-error" : undefined}
                   className="h-11 pl-10 placeholder:text-sm"
                   {...register("email")}
                 />
               </div>
 
               {errors.email && (
-                <p className="mt-1.5 text-xs text-red-500">
+                <p id="email-error" className="mt-1.5 text-xs text-red-500">
                   {errors.email.message}
                 </p>
               )}
@@ -194,13 +202,14 @@ export default function ContactForm() {
                 placeholder="How can we help?"
                 disabled={isSubmitting}
                 aria-invalid={!!errors.subject}
+                aria-describedby={errors.subject ? "subject-error" : undefined}
                 className="h-11 pl-10 placeholder:text-sm"
                 {...register("subject")}
               />
             </div>
 
             {errors.subject && (
-              <p className="mt-1.5 text-xs text-red-500">
+              <p id="subject-error" className="mt-1.5 text-xs text-red-500">
                 {errors.subject.message}
               </p>
             )}
@@ -217,12 +226,13 @@ export default function ContactForm() {
               placeholder="Tell us what's on your mind..."
               disabled={isSubmitting}
               aria-invalid={!!errors.message}
+              aria-describedby={errors.message ? "message-error" : undefined}
               className="min-h-36 resize-none"
               {...register("message")}
             />
 
             {errors.message && (
-              <p className="mt-1.5 text-xs text-red-500">
+              <p id="message-error" className="mt-1.5 text-xs text-red-500">
                 {errors.message.message}
               </p>
             )}
@@ -248,7 +258,8 @@ export default function ContactForm() {
           </Button>
 
           <p className="text-foreground/40 text-center text-[11px]">
-            We usually respond within 24–48 hours.
+            Support replies are handled on business days. Include your match ID
+            and tournament name where relevant.
           </p>
         </form>
       </div>

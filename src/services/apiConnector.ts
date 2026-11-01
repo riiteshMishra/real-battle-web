@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
@@ -6,10 +6,10 @@ const axiosInstance = axios.create({
 });
 
 interface ApiConnectorProps {
-  method: AxiosRequestConfig["method"];
+  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   url: string;
   body?: unknown;
-  headers?: AxiosRequestConfig["headers"];
+  headers?: Record<string, string>;
   params?: Record<string, unknown>;
 }
 
@@ -19,9 +19,9 @@ const apiConnector = async <T = unknown>({
   body,
   headers,
   params,
-}: ApiConnectorProps): Promise<AxiosResponse<T>> => {
+}: ApiConnectorProps) => {
   try {
-    const response = await axiosInstance({
+    const response = await axiosInstance.request<T>({
       method,
       url,
       data: body,
@@ -30,10 +30,14 @@ const apiConnector = async <T = unknown>({
     });
 
     return response;
-  } catch (error: any) {
-    console.error("API Error:", error.message);
+  } catch (error) {
+    const message = axios.isAxiosError(error)
+      ? error.message
+      : "Unexpected request failure";
 
-    if (error.response?.status === 401) {
+    console.error("API Error:", message);
+
+    if (axios.isAxiosError(error) && error.response?.status === 401) {
       console.warn("Unauthorized - Token might be expired");
     }
 

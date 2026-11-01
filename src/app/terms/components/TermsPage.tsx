@@ -14,7 +14,7 @@ const TermsPage = () => {
     <div className="min-h-screen bg-slate-50 bg-[radial-gradient(circle,rgba(59,130,246,0.14)_1px,transparent_1px)] bg-size-[24px_24px] text-slate-900 dark:bg-slate-950 dark:bg-[radial-gradient(circle,rgba(96,165,250,0.10)_1px,transparent_1px)] dark:text-slate-100">
       <TermHero />
 
-      <main id="main-content" className="mx-auto max-w-4xl px-4 py-12 md:py-16">
+      <main className="mx-auto max-w-4xl px-4 py-12 md:py-16">
         <TermOverview />
         <FaqSection
           title="Frequently Asked Questions"

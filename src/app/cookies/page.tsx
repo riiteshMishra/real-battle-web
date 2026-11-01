@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import CookiesPage from "./components/CookiesPage";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | Real Battle",
+  title: "Cookie Policy",
 
   description:
     "Learn how Real Battle uses essential cookies for authentication, secure sessions, account access, and reliable gaming and tournament services.",
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Cookie Policy | Real Battle",
+    images: ["/opengraph-image"],
+    title: "Cookie Policy",
     description:
       "Learn how Real Battle uses essential cookies for authentication, secure sessions, account access, and gaming services.",
     type: "website",
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
   },
 
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary",
-    title: "Cookie Policy | Real Battle",
+    title: "Cookie Policy",
     description:
       "Learn how Real Battle uses essential cookies for authentication, secure sessions, and account access.",
   },

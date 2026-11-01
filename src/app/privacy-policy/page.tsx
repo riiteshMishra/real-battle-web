@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PrivacyPage } from "./components/PrivacyPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Real Battle Free Fire Gaming Platform",
+  title: "Privacy Policy",
 
   description:
     "Read the Real Battle Privacy Policy to learn how we collect, use, store, and protect personal information for Free Fire tournaments and online gaming services.",
@@ -27,7 +27,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Privacy Policy | Real Battle",
+    images: ["/opengraph-image"],
+    title: "Privacy Policy",
     description:
       "Learn how Real Battle protects your personal information when you participate in Free Fire tournaments and online gaming services.",
     type: "website",
@@ -36,8 +37,9 @@ export const metadata: Metadata = {
   },
 
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary",
-    title: "Privacy Policy | Real Battle",
+    title: "Privacy Policy",
     description:
       "Learn how Real Battle collects, uses, stores, and protects your information for Free Fire tournaments and online gaming services.",
   },

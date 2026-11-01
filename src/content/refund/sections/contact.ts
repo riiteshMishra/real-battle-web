@@ -6,7 +6,7 @@ export const contactSection: RefundSection = {
   type: "contact",
   content: [
     "If you have questions about a refund, payment, tournament cancellation, or transaction issue, contact the Real Battle support team.",
-    "Support: support@realbattle.com",
+    "Support: realbattleofficial@gmail.com",
     "Please include your registered account information, tournament name or ID, transaction ID, payment details, and a brief description of the issue so that we can review your request efficiently.",
   ],
 };

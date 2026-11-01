@@ -2,7 +2,6 @@ import Heading from "./Heading";
 import { homeData } from "@/src/data/home";
 import SubHeading from "./SubHeading";
 import Steps from "./Steps";
-import HeroImg from "./HeroImg";
 
 const HeroSection = () => {
   return (

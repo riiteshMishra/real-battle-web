@@ -6,7 +6,8 @@ export const contactSection = {
   content: [
     "If you have questions about these Terms, tournament rules, account restrictions, payments, or other Real Battle services, you can contact our team.",
 
-    "Legal & Terms: legal@realbattle.com",
-    "Support: support@realbattle.com",
+    "Legal & Terms: realbattleofficial@gmail.com",
+    "Support: realbattleofficial@gmail.com",
+    "Grievances: realbattleofficial@gmail.com — mark the subject as \"Grievance\" and include your registered account details. We review grievances within the time required by applicable law.",
   ],
 };

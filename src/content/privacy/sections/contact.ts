@@ -7,7 +7,7 @@ export const contactSection = {
 
     "Please include sufficient information in your request so that we can identify your account and understand your request.",
 
-    "Privacy Contact: privacy@realbattle.com",
-    "Support Contact: support@realbattle.com",
+    "Privacy Contact: realbattleofficial@gmail.com",
+    "Support Contact: realbattleofficial@gmail.com",
   ],
 };

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import DisclaimerRoute from "./components/DisclaimerRoute";
 
 export const metadata: Metadata = {
-  title: "Disclaimer | Real Battle",
+  title: "Disclaimer",
 
   description:
     "Read the Real Battle Disclaimer covering gaming content, tournament information, third-party services, platform availability, and limitations of responsibility.",
@@ -17,7 +17,8 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Disclaimer | Real Battle",
+    images: ["/opengraph-image"],
+    title: "Disclaimer",
     description:
       "Important information about Real Battle gaming services, tournaments, third-party services, and platform limitations.",
     type: "website",
@@ -26,8 +27,9 @@ export const metadata: Metadata = {
   },
 
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary",
-    title: "Disclaimer | Real Battle",
+    title: "Disclaimer",
     description:
       "Important information about Real Battle gaming services, tournaments, and platform limitations.",
   },

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import RefundPage from "./components/RefundPage";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Real Battle",
+  title: "Refund Policy",
   description:
     "Read the Real Battle Refund Policy to understand eligibility, refund conditions, cancellations, entry fees, and refund procedures for gaming tournaments.",
   keywords: [
@@ -16,6 +16,25 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: "/refund-policy",
+  },
+  openGraph: {
+    images: ["/opengraph-image"],
+    title: "Refund Policy",
+    description:
+      "Eligibility, refund conditions, cancellations and entry fee procedures for Real Battle tournaments.",
+    type: "website",
+    url: "/refund-policy",
+    siteName: "Real Battle",
+  },
+  twitter: {
+    images: ["/opengraph-image"],
+    card: "summary",
+    title: "Refund Policy",
+    description:
+      "Eligibility, refund conditions, cancellations and entry fee procedures for Real Battle tournaments.",
   },
 };
 

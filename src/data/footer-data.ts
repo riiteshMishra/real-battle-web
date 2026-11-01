@@ -19,7 +19,7 @@ import {
 
 import { IconType } from "react-icons";
 import { TbTournament } from "react-icons/tb";
-import { MdFeaturedPlayList, MdHowToVote, MdArticle } from "react-icons/md";
+import { MdFeaturedPlayList, MdHowToVote } from "react-icons/md";
 import { GiPriceTag } from "react-icons/gi";
 
 export interface FooterSection {

@@ -22,6 +22,15 @@ export const prizesSection = {
     },
 
     {
+      title: "Taxes & Statutory Deductions",
+      items: [
+        "Where applicable, prizes and rewards may be subject to tax or statutory deductions, including tax deducted at source (TDS), as required by law.",
+        "Participants are responsible for providing accurate identity and tax details, and for their own tax obligations.",
+        "The applicable treatment depends on the participant's location and the nature of the reward.",
+      ],
+    },
+
+    {
       title: "Prize Changes",
       items: [
         "Where reasonably necessary, prize details may change because of tournament cancellation, technical issues, organizer decisions, unavailable rewards, legal restrictions, or other circumstances described in the applicable tournament rules.",
