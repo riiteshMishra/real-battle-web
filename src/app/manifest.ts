@@ -7,10 +7,16 @@ const manifest = (): MetadataRoute.Manifest => ({
     "Competitive Free Fire tournaments for Indian players: solo, squad and Clash Squad battles with verified results.",
   start_url: "/",
   display: "standalone",
-  background_color: "#08080D",
-  theme_color: "#8B5CF6",
+  background_color: "#0A0A0A",
+  theme_color: "#0A0A0A",
   lang: "en-IN",
   icons: [
+    {
+      src: "/icon.svg",
+      sizes: "any",
+      type: "image/svg+xml",
+      purpose: "any",
+    },
     {
       src: "/icons/icon-192.png",
       sizes: "192x192",

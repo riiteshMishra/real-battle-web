@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
-import "./globals.css";
+import "@/src/styles/globals.css";
 import { Toaster } from "sonner";
-import RootProviders from "../providers/Index";
 import { cn } from "@/lib/utils";
-import Navbar from "../components/common/navbar/Navbar";
+import Navbar from "@/src/components/layout/Navbar";
+import QueryProvider from "@/src/providers/QueryProvider";
 import { siteConfig } from "@/src/config/site";
 
 const spaceGrotesk = Space_Grotesk({
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#08080D",
+  themeColor: "#0A0A0A",
   colorScheme: "dark",
 };
 
@@ -119,7 +119,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en-IN"
-      suppressHydrationWarning
       className={cn("h-full", spaceGrotesk.variable, dmSans.variable)}
     >
       <body className="min-h-full">
@@ -128,21 +127,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+
         <a
           href="#main-content"
-          className="bg-accent text-accent-foreground fixed top-3 left-3 z-[200] -translate-y-24 rounded-lg px-4 py-2 text-sm font-semibold transition-transform focus:translate-y-0"
+          className="bg-brand-fill text-brand-foreground fixed top-3 left-3 z-200 -translate-y-24 rounded-lg px-4 py-2 text-sm font-semibold transition-transform focus:translate-y-0"
         >
           Skip to content
         </a>
 
         <Toaster position="top-right" theme="dark" richColors />
 
-        <RootProviders>
+        <QueryProvider>
           <Navbar />
           <div id="main-content" tabIndex={-1} className="outline-none">
             {children}
           </div>
-        </RootProviders>
+        </QueryProvider>
       </body>
     </html>
   );

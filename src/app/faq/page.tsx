@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Footer from "@/src/components/common/footer/Footer";
-import PageHero from "@/src/components/marketing/page-hero";
-import Faq from "@/src/components/marketing/faq";
-import Reveal from "@/src/components/marketing/reveal";
+import Footer from "@/src/components/layout/Footer";
+import PageHero from "@/src/components/ui/PageHero";
+import FaqSection from "@/src/sections/faq/FaqSection";
+import Reveal from "@/src/components/ui/Reveal";
 import { siteConfig } from "@/src/config/site";
 import { faqData } from "@/src/data/faq-data";
 import { FiArrowRight, FiMail, FiMessageSquare } from "react-icons/fi";
@@ -60,19 +60,19 @@ const FaqPage = () => {
             <>
               Questions?
               <br />
-              <span className="text-gradient">Straight Answers.</span>
+              <span className="text-emphasis">Straight Answers.</span>
             </>
           }
           description="Registration, room details, result verification, rewards aur withdrawals — sab kuch simple language mein. Agar yahan answer nahi mila, support ko likh do."
         />
 
-        <Faq showHeading={false} className="pt-12 sm:pt-16" />
+        <FaqSection showHeading={false} className="pt-12 sm:pt-16" />
 
         <section className="pb-20 sm:pb-24">
           <div className="container-page">
             <Reveal>
               <div className="surface-card card-sheen relative overflow-hidden rounded-3xl p-7 sm:p-10">
-                <div className="pointer-events-none absolute -top-24 -right-16 size-56 rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.2),transparent_70%)]" />
+                <div className="pointer-events-none absolute -top-24 -right-16 size-56 rounded-full bg-[radial-gradient(circle,rgba(229,72,77,0.18),transparent_70%)]" />
 
                 <div className="relative grid gap-6 md:grid-cols-[1.4fr_0.6fr] md:items-center">
                   <div>
@@ -94,7 +94,7 @@ const FaqPage = () => {
                   <div className="flex flex-col gap-3">
                     <Link
                       href="/contact-us"
-                      className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-violet-500 to-violet-600 px-6 text-[13px] font-semibold text-white shadow-[0_12px_40px_rgba(139,92,246,0.28)] transition-all hover:-translate-y-0.5"
+                      className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-fill px-6 text-[13px] font-semibold text-brand-foreground transition-colors hover:bg-brand-hover"
                     >
                       Contact support
                       <FiArrowRight
@@ -105,7 +105,7 @@ const FaqPage = () => {
 
                     <a
                       href={`mailto:${siteConfig.email}`}
-                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 text-[13px] font-semibold text-foreground transition-colors hover:border-white/25 hover:bg-white/[0.08]"
+                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border bg-card px-6 text-[13px] font-semibold text-foreground transition-colors hover:border-dim hover:bg-elevated"
                     >
                       <FiMail aria-hidden="true" className="size-4" />
                       Email support

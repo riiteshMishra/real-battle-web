@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Footer from "@/src/components/common/footer/Footer";
-import PageHero from "@/src/components/marketing/page-hero";
-import Reveal from "@/src/components/marketing/reveal";
-import SectionHeading from "@/src/components/marketing/section-heading";
-import FinalCta from "@/src/components/marketing/final-cta";
+import Footer from "@/src/components/layout/Footer";
+import PageHero from "@/src/components/ui/PageHero";
+import Reveal from "@/src/components/ui/Reveal";
+import SectionHeading from "@/src/components/ui/SectionHeading";
+import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
 import {
   FiArrowRight,
@@ -91,7 +91,7 @@ const AboutPage = () => {
             <>
               Built For The Players
               <br />
-              <span className="text-gradient">Who Take It Seriously.</span>
+              <span className="text-emphasis">Who Take It Seriously.</span>
             </>
           }
           description="Real Battle is a competitive Free Fire tournament platform for Indian players. Our job is simple: publish the rules clearly, verify results honestly, and keep the arena focused on skill."
@@ -102,14 +102,14 @@ const AboutPage = () => {
             <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
               <Reveal>
                 <p className="eyebrow mb-4">
-                  <span className="inline-block size-1.5 rounded-full bg-accent" />
+                  <span className="inline-block size-1.5 rounded-full bg-brand" />
                   Why we exist
                 </p>
 
                 <h2 className="text-[clamp(1.9rem,4.2vw,3.25rem)] leading-[1.05] font-semibold tracking-[-0.04em]">
                   Competitive gaming,
                   <br />
-                  <span className="text-gradient">without the noise.</span>
+                  <span className="text-emphasis">without the noise.</span>
                 </h2>
               </Reveal>
 
@@ -141,7 +141,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <section className="section-space border-y border-white/8 bg-[#0b0b12]">
+        <section className="section-space border-y border-border bg-surface">
           <div className="container-page">
             <SectionHeading
               eyebrow="How we operate"
@@ -149,7 +149,7 @@ const AboutPage = () => {
                 <>
                   Six Principles.
                   <br />
-                  <span className="text-gradient">Zero Shortcuts.</span>
+                  <span className="text-emphasis">Zero Shortcuts.</span>
                 </>
               }
               description="These are the standards we can actually stand behind today."
@@ -161,11 +161,11 @@ const AboutPage = () => {
 
                 return (
                   <Reveal key={principle.title} delay={Math.min(index * 70, 280)}>
-                    <div className="h-full rounded-2xl border border-white/8 bg-white/[0.02] p-6 transition-colors hover:border-white/16 hover:bg-white/[0.04]">
-                      <span className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                    <div className="h-full rounded-2xl border border-border bg-card p-6 transition-colors hover:border-dim hover:bg-elevated">
+                      <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-card">
                         <Icon
                           aria-hidden="true"
-                          className="size-4 text-cyan-300"
+                          className="size-4 text-brand"
                         />
                       </span>
 
@@ -220,7 +220,7 @@ const AboutPage = () => {
                   <div className="mt-7 flex flex-wrap gap-3">
                     <Link
                       href="/terms"
-                      className="group inline-flex items-center gap-2 text-[12px] font-semibold text-foreground hover:text-accent"
+                      className="group inline-flex items-center gap-2 text-[12px] font-semibold text-foreground hover:text-brand"
                     >
                       Terms of Service
                       <FiArrowRight
@@ -231,7 +231,7 @@ const AboutPage = () => {
 
                     <Link
                       href="/refund-policy"
-                      className="group inline-flex items-center gap-2 text-[12px] font-semibold text-foreground hover:text-accent"
+                      className="group inline-flex items-center gap-2 text-[12px] font-semibold text-foreground hover:text-brand"
                     >
                       Refund Policy
                       <FiArrowRight
@@ -244,7 +244,7 @@ const AboutPage = () => {
               </Reveal>
 
               <Reveal delay={100}>
-                <div className="h-full rounded-3xl border border-white/8 bg-white/[0.02] p-7 sm:p-9">
+                <div className="h-full rounded-3xl border border-border bg-card p-7 sm:p-9">
                   <p className="text-[10px] font-bold tracking-[0.22em] text-muted-foreground uppercase">
                     Contact
                   </p>
@@ -261,9 +261,9 @@ const AboutPage = () => {
 
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-white/12 bg-white/[0.04] px-5 py-3 text-[13px] font-semibold text-foreground transition-colors hover:border-white/25 hover:bg-white/[0.08]"
+                    className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-border bg-card px-5 py-3 text-[13px] font-semibold text-foreground transition-colors hover:border-dim hover:bg-elevated"
                   >
-                    <FiMail aria-hidden="true" className="size-4 text-violet-300" />
+                    <FiMail aria-hidden="true" className="size-4 text-brand" />
                     {siteConfig.email}
                   </a>
 
@@ -271,7 +271,7 @@ const AboutPage = () => {
 
                   <Link
                     href="/contact-us"
-                    className="group mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-foreground hover:text-accent"
+                    className="group mt-6 inline-flex items-center gap-2 text-[13px] font-semibold text-foreground hover:text-brand"
                   >
                     Contact form
                     <FiArrowRight
@@ -285,7 +285,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        <FinalCta />
+        <FinalCtaSection />
       </main>
 
       <Footer />

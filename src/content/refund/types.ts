@@ -1,3 +1,3 @@
-import type { DocumentSection } from "@/src/components/ui/doc/section/types";
+import type { DocumentSection } from "@/src/components/doc/section/types";
 
 export type RefundSection = DocumentSection;

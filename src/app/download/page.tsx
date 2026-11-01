@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Footer from "@/src/components/common/footer/Footer";
-import PageHero from "@/src/components/marketing/page-hero";
-import ApkPanel from "@/src/components/marketing/apk-panel";
-import Reveal from "@/src/components/marketing/reveal";
-import SectionHeading from "@/src/components/marketing/section-heading";
-import Faq from "@/src/components/marketing/faq";
-import FinalCta from "@/src/components/marketing/final-cta";
+import Footer from "@/src/components/layout/Footer";
+import PageHero from "@/src/components/ui/PageHero";
+import ApkPanel from "@/src/sections/download/ApkPanel";
+import Reveal from "@/src/components/ui/Reveal";
+import SectionHeading from "@/src/components/ui/SectionHeading";
+import FaqSection from "@/src/sections/faq/FaqSection";
+import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
 import {
   FiAlertTriangle,
@@ -107,7 +107,7 @@ const DownloadPage = () => {
             <>
               Install Once.
               <br />
-              <span className="text-gradient">Battle Every Day.</span>
+              <span className="text-emphasis">Battle Every Day.</span>
             </>
           }
           description="Real Battle runs on Android. Download the official build, sign in, aur apna pehla tournament app se hi register karo — room details aur results bhi wahin milte hain."
@@ -148,13 +148,13 @@ const DownloadPage = () => {
                     </ul>
                   </div>
 
-                  <div className="rounded-2xl border border-gold/20 bg-gold/[0.05] p-6">
-                    <p className="flex items-center gap-2 text-[10px] font-bold tracking-[0.18em] text-gold uppercase">
+                  <div className="rounded-2xl border border-success/30 bg-success-soft p-6">
+                    <p className="flex items-center gap-2 text-[10px] font-bold tracking-[0.18em] text-success uppercase">
                       <FiAlertTriangle aria-hidden="true" className="size-3.5" />
                       Verification status
                     </p>
 
-                    <p className="mt-3 text-[13px] leading-6 text-white/65">
+                    <p className="mt-3 text-[13px] leading-6 text-dim">
                       The published APK link, version number, file size and
                       checksum are shown only after the production build is
                       verified. Until then, this page stays honest about what is
@@ -163,7 +163,7 @@ const DownloadPage = () => {
 
                     <a
                       href={`mailto:${siteConfig.email}?subject=Real%20Battle%20Android%20build%20question`}
-                      className="mt-4 inline-flex text-[12px] font-semibold text-gold underline decoration-gold/30 underline-offset-4 hover:decoration-gold"
+                      className="mt-4 inline-flex text-[12px] font-semibold text-success underline decoration-success/40 underline-offset-4 hover:decoration-success"
                     >
                       Ask about the release status
                     </a>
@@ -174,7 +174,7 @@ const DownloadPage = () => {
           </div>
         </section>
 
-        <section className="section-space border-y border-white/8 bg-[#0b0b12]">
+        <section className="section-space border-y border-border bg-surface">
           <div className="container-page">
             <SectionHeading
               eyebrow="Install guide"
@@ -182,7 +182,7 @@ const DownloadPage = () => {
                 <>
                   Five Steps.
                   <br />
-                  <span className="text-gradient">No Guesswork.</span>
+                  <span className="text-emphasis">No Guesswork.</span>
                 </>
               }
               description="From download to your first room code — the whole path in plain language."
@@ -195,11 +195,11 @@ const DownloadPage = () => {
                 return (
                   <li key={step.title}>
                     <Reveal delay={Math.min(index * 70, 280)}>
-                      <div className="flex h-full flex-col rounded-2xl border border-white/8 bg-white/[0.02] p-5">
-                        <span className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                      <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
+                        <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-card">
                           <Icon
                             aria-hidden="true"
-                            className="size-4 text-cyan-300"
+                            className="size-4 text-brand"
                           />
                         </span>
 
@@ -231,7 +231,7 @@ const DownloadPage = () => {
                 <>
                   Install Safe.
                   <br />
-                  <span className="text-gradient">Play Focused.</span>
+                  <span className="text-emphasis">Play Focused.</span>
                 </>
               }
               description="A few practical checks that protect your account and your device."
@@ -243,11 +243,11 @@ const DownloadPage = () => {
 
                 return (
                   <Reveal key={note.title} delay={index * 80}>
-                    <div className="h-full rounded-2xl border border-white/8 bg-white/[0.02] p-6">
-                      <span className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                    <div className="h-full rounded-2xl border border-border bg-card p-6">
+                      <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-card">
                         <Icon
                           aria-hidden="true"
-                          className="size-4 text-violet-300"
+                          className="size-4 text-brand"
                         />
                       </span>
 
@@ -266,8 +266,8 @@ const DownloadPage = () => {
           </div>
         </section>
 
-        <Faq limit={6} showViewAll />
-        <FinalCta />
+        <FaqSection limit={6} showViewAll />
+        <FinalCtaSection />
       </main>
 
       <Footer />

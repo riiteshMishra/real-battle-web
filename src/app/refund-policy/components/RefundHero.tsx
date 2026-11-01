@@ -1,33 +1,27 @@
-import { IndianRupee, ShieldCheck } from "lucide-react";
-
-import HeroTemplet from "@/src/components/ui/doc/hero/HeroTemplet";
-import { sectionGradient } from "@/src/content/bg-colors";
+import { IndianRupee } from "lucide-react";
+import HeroTemplet from "@/src/components/doc/hero/HeroTemplet";
 import { refundData } from "@/src/content/refund/refund-index";
 
-export const indicators = [
+const indicators = [
   "Refund Eligibility",
   "Cancellation Rules",
   "Payment Protection",
 ];
 
-const RefundHero = () => {
+export default function RefundHero() {
   return (
     <HeroTemplet
-      background={sectionGradient.emerald}
       heroBrand={{
         icon: IndianRupee,
         title: "Real Battle",
-        subtitle: "Free Fire Gaming & Tournament Platform.",
-        iconColor: "text-emerald-200",
-        titleColor: "text-white",
-        subtitleColor: "text-white/80",
+        subtitle: "Free Fire gaming & tournament platform.",
       }}
       heroContent={{
         title: "Refund Policy",
         description: (
           <>
             Understand the{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-foreground">
               Real Battle Refund Policy
             </strong>{" "}
             covering tournament entry fees, cancellations, refund eligibility,
@@ -35,16 +29,8 @@ const RefundHero = () => {
           </>
         ),
       }}
-      updateProps={{
-        date: refundData.lastUpdated,
-      }}
-      heroTrust={{
-        indicators,
-        icon: ShieldCheck,
-        iconColor: "text-emerald-300",
-      }}
+      updateProps={{ date: refundData.lastUpdated }}
+      heroTrust={{ indicators }}
     />
   );
-};
-
-export default RefundHero;
+}

@@ -1,35 +1,23 @@
-import HeroTemplet from "@/src/components/ui/doc/hero/HeroTemplet";
-import { sectionGradient } from "@/src/content/bg-colors";
+import HeroTemplet from "@/src/components/doc/hero/HeroTemplet";
 import { cookiesData } from "@/src/content/cookies/cookies-index";
-import { Cookie, ShieldCheck } from "lucide-react";
+import { Cookie } from "lucide-react";
 
 const indicators = ["Essential Cookies", "Secure Sessions", "Authentication"];
 
-const CookiesHero = () => {
+export default function CookiesHero() {
   return (
     <HeroTemplet
-      background={sectionGradient.orange}
       heroBrand={{
         icon: Cookie,
         title: "Real Battle",
-        subtitle: "Free Fire Gaming & Tournament Platform.",
-        iconColor: "text-yellow-200",
-        titleColor: "text-orange-200",
+        subtitle: "Free Fire gaming & tournament platform.",
       }}
       heroContent={{
         title: cookiesData.title,
         description: cookiesData.description,
       }}
-      updateProps={{
-        date: cookiesData.lastUpdated,
-      }}
-      heroTrust={{
-        indicators,
-        icon: ShieldCheck,
-        iconColor: "text-emerald-300",
-      }}
+      updateProps={{ date: cookiesData.lastUpdated }}
+      heroTrust={{ indicators }}
     />
   );
-};
-
-export default CookiesHero;
+}

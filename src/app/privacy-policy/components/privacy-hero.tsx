@@ -1,56 +1,37 @@
-import HeroTemplet from "@/src/components/ui/doc/hero/HeroTemplet";
-import { sectionGradient } from "@/src/content/bg-colors";
+import HeroTemplet from "@/src/components/doc/hero/HeroTemplet";
 import { privacyData } from "@/src/content/privacy/privacy-index";
 import { ShieldCheckIcon } from "lucide-react";
 
-export const indicators = [
-  "Data Protection",
-  "Secure Gaming",
-  "Privacy focused",
-];
-const PrivacyHero = () => {
+const indicators = ["Data Protection", "Secure Gaming", "Privacy focused"];
+
+export default function PrivacyHero() {
   return (
     <HeroTemplet
-      background={sectionGradient.blue}
-
       heroBrand={{
         icon: ShieldCheckIcon,
         title: "Real Battle",
-        subtitle: "Free Fire Gaming & Tournament Platform.",
-        iconColor: "text-cyan-200",
-        titleColor: "dark:text-blue-400",
-        subtitleColor: "dark:text-gray-400",
+        subtitle: "Free Fire gaming & tournament platform.",
       }}
-
       heroContent={{
         title: "Privacy Policy",
         description: (
           <>
             Learn how{" "}
-            <strong className="font-semibold text-white"> Real Battle</strong>
-            collects, uses, stores, and protect your
-            <strong className="font-semibold text-white">
-              {" "}
-              Personal Information
+            <strong className="font-semibold text-foreground">Real Battle</strong>{" "}
+            collects, uses, stores, and protects your{" "}
+            <strong className="font-semibold text-foreground">
+              personal information
             </strong>{" "}
-            when you participate in our
-            <strong className="font-semibold text-white">
-              {" "}
-              Free Fire Tournaments and online gaming services.
+            when you participate in our{" "}
+            <strong className="font-semibold text-foreground">
+              Free Fire tournaments and online gaming services
             </strong>
+            .
           </>
         ),
       }}
-
       updateProps={{ date: privacyData.lastUpdated }}
-
-      heroTrust={{
-        indicators,
-        icon: ShieldCheckIcon,
-        iconColor: "dark:text-green-400 text-orange-400",
-      }}
+      heroTrust={{ indicators }}
     />
   );
-};
-
-export default PrivacyHero;
+}

@@ -16,13 +16,13 @@ const NotFound = () => {
     <main className="relative isolate flex min-h-[calc(100dvh-4rem)] items-center overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 grid-backdrop opacity-50" />
-        <div className="glow-violet absolute -top-40 left-1/2 size-[34rem] -translate-x-1/2 opacity-50" />
-        <div className="glow-cyan absolute -right-32 -bottom-40 size-[26rem] opacity-40" />
+        <div className="glow-brand absolute -top-40 left-1/2 size-[34rem] -translate-x-1/2 opacity-50" />
+        <div className="glow-success absolute -right-32 -bottom-40 size-[26rem] opacity-40" />
       </div>
 
       <div className="container-page py-20">
         <div className="mx-auto max-w-xl text-center">
-          <p className="font-heading text-[clamp(6rem,20vw,11rem)] leading-none font-semibold tracking-[-0.06em] text-transparent [background:linear-gradient(100deg,#c4b5fd,#8b5cf6_45%,#35e7ef)] [-webkit-background-clip:text] [background-clip:text]">
+          <p className="font-heading text-[clamp(6rem,20vw,11rem)] leading-none font-semibold tracking-[-0.06em] text-brand">
             404
           </p>
 
@@ -40,7 +40,7 @@ const NotFound = () => {
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-linear-to-r from-violet-500 to-violet-600 px-6 text-[13px] font-semibold text-white shadow-[0_12px_40px_rgba(139,92,246,0.28)] transition-all hover:-translate-y-0.5"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-fill px-6 text-[13px] font-semibold text-brand-foreground transition-colors hover:bg-brand-hover"
             >
               <FiHome aria-hidden="true" className="size-4" />
               Back to home
@@ -48,7 +48,7 @@ const NotFound = () => {
 
             <Link
               href="/tournaments"
-              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-6 text-[13px] font-semibold text-foreground transition-colors hover:border-white/25 hover:bg-white/[0.08]"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-border bg-card px-6 text-[13px] font-semibold text-foreground transition-colors hover:border-dim hover:bg-elevated"
             >
               <FiSearch aria-hidden="true" className="size-4" />
               Browse tournaments

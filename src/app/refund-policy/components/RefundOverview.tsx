@@ -1,4 +1,4 @@
-import OverviewTemplate from "@/src/components/ui/doc/overview/OverviewTemplate";
+import OverviewTemplate from "@/src/components/doc/overview/OverviewTemplate";
 import { refundOverviewItems } from "./overview-items";
 
 const RefundOverview = () => {

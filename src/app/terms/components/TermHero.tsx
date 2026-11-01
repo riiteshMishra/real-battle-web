@@ -1,37 +1,27 @@
-import HeroTemplet from "@/src/components/ui/doc/hero/HeroTemplet";
-import { sectionGradient } from "@/src/content/bg-colors";
+import HeroTemplet from "@/src/components/doc/hero/HeroTemplet";
 import { termsData } from "@/src/content/terms/terms-index";
-import { FileText, ShieldCheck } from "lucide-react";
+import { FileText } from "lucide-react";
 
-export const indicators = [
-  "Fair Play",
-  "Tournament Rules",
-  "Player Protection",
-];
+const indicators = ["Fair Play", "Tournament Rules", "Player Protection"];
 
-const TermHero = () => {
+export default function TermHero() {
   return (
     <HeroTemplet
-      background={sectionGradient.blue}
-
       heroBrand={{
         icon: FileText,
         title: "Real Battle",
-        subtitle: "Free Fire Gaming & Tournament Platform.",
-        iconColor: "text-cyan-200",
-        titleColor: "text-blue-400 ",
+        subtitle: "Free Fire gaming & tournament platform.",
       }}
-
       heroContent={{
         title: "Terms of Service",
         description: (
           <>
             Read the{" "}
-            <strong className="font-semibold text-white">
-              Real Battle Terms of Service{" "}
-            </strong>
+            <strong className="font-semibold text-foreground">
+              Real Battle Terms of Service
+            </strong>{" "}
             governing your use of our{" "}
-            <strong className="font-semibold text-white">
+            <strong className="font-semibold text-foreground">
               online gaming platform
             </strong>
             , Free Fire tournaments, accounts, payments, prizes, and tournament
@@ -39,16 +29,8 @@ const TermHero = () => {
           </>
         ),
       }}
-      updateProps={{
-        date: termsData.lastUpdated,
-      }}
-      heroTrust={{
-        indicators,
-        icon: ShieldCheck,
-        iconColor: "text-emerald-300",
-      }}
+      updateProps={{ date: termsData.lastUpdated }}
+      heroTrust={{ indicators }}
     />
   );
-};
-
-export default TermHero;
+}

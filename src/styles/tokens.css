@@ -1,0 +1,127 @@
+/* -------------------------------------------------------------------------
+   Real Battle design tokens — single source of truth.
+   Permanent dark theme. Four colour families only: red, green, white, black.
+   Contrast ratios are documented next to each token pair and verified in
+   docs/theme-report.md.
+   ------------------------------------------------------------------------- */
+
+:root {
+  color-scheme: dark;
+
+  /* Black — structure */
+  --background: #0a0a0a;
+  --surface: #111111;
+  --card: #181818;
+  --elevated: #222222;
+  --border: #333333;
+  --border-subtle: #292929;
+
+  /* White — typography */
+  --foreground: #f5f5f5;
+  --muted-foreground: #b3b3b3;
+  --dim: #8f8f8f;
+  --inverse: #0a0a0a;
+
+  /* Red — brand and actions */
+  --brand: #e5484d; /* 5.06:1 on #0a0a0a — text, icons, active states */
+  --brand-fill: #cc3340; /* 4.68:1 with #f5f5f5 — solid buttons */
+  --brand-hover: #b42332; /* 5.97:1 with #f5f5f5 — hover fill */
+  --brand-soft: #261013; /* 4.60:1 with --brand — red-text surfaces */
+  --brand-foreground: #f5f5f5;
+
+  /* Green — success, rewards, verified states */
+  --success: #22c55e; /* 8.69:1 on #0a0a0a — text and icons */
+  --success-fill: #16a36a; /* 6.11:1 with #0a0a0a — solid fills */
+  --success-deep: #15803d;
+  --success-soft: #102b20;
+  --success-foreground: #0a0a0a;
+
+  /* shadcn/ui compatibility layer (consumed by generated primitives) */
+  --background-foreground: var(--foreground);
+  --card-foreground: var(--foreground);
+  --popover: var(--elevated);
+  --popover-foreground: var(--foreground);
+  --primary: var(--brand-fill);
+  --primary-foreground: var(--brand-foreground);
+  --primary-hover: var(--brand-hover);
+  --secondary: var(--card);
+  --secondary-foreground: var(--foreground);
+  --accent: var(--elevated);
+  --accent-foreground: var(--foreground);
+  --muted: var(--card);
+  --muted-foreground-token: var(--muted-foreground);
+  --input: var(--border);
+  --ring: var(--brand);
+  --destructive: var(--brand-fill);
+  --danger: var(--brand);
+
+  --radius: 1rem;
+
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--brand-fill);
+  --sidebar-primary-foreground: var(--brand-foreground);
+  --sidebar-accent: var(--card);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--brand);
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-space-grotesk);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-elevated: var(--elevated);
+
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand: var(--brand);
+  --color-brand-fill: var(--brand-fill);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-foreground: var(--brand-foreground);
+
+  --color-success: var(--success);
+  --color-success-fill: var(--success-fill);
+  --color-success-deep: var(--success-deep);
+  --color-success-soft: var(--success-soft);
+  --color-success-foreground: var(--success-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-dim: var(--dim);
+  --color-destructive: var(--destructive);
+  --color-danger: var(--danger);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.35);
+  --radius-2xl: calc(var(--radius) * 1.75);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.8);
+}

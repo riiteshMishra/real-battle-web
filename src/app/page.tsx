@@ -1,31 +1,29 @@
-import Footer from "@/src/components/common/footer/Footer";
-import Hero from "@/src/components/marketing/hero";
-import TournamentShowcase from "@/src/components/marketing/tournaments/tournament-showcase";
-import HowItWorks from "@/src/components/marketing/how-it-works";
-import Rewards from "@/src/components/marketing/rewards";
-import FairPlay from "@/src/components/marketing/fair-play";
-import DownloadSection from "@/src/components/marketing/download-section";
-import Community from "@/src/components/marketing/community";
-import Faq from "@/src/components/marketing/faq";
-import FinalCta from "@/src/components/marketing/final-cta";
+import Footer from "@/src/components/layout/Footer";
+import HeroSection from "@/src/sections/hero/HeroSection";
+import TournamentSection from "@/src/sections/tournaments/TournamentSection";
+import HowItWorksSection from "@/src/sections/how-it-works/HowItWorksSection";
+import RewardsSection from "@/src/sections/rewards/RewardsSection";
+import FairPlaySection from "@/src/sections/fair-play/FairPlaySection";
+import DownloadSection from "@/src/sections/download/DownloadSection";
+import CommunitySection from "@/src/sections/community/CommunitySection";
+import FaqSection from "@/src/sections/faq/FaqSection";
+import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <main>
-        <Hero />
-        <TournamentShowcase />
-        <HowItWorks />
-        <Rewards />
-        <FairPlay />
+        <HeroSection />
+        <TournamentSection />
+        <HowItWorksSection />
+        <RewardsSection />
+        <FairPlaySection />
         <DownloadSection />
-        <Community />
-        <Faq limit={8} showViewAll />
-        <FinalCta />
+        <CommunitySection />
+        <FaqSection limit={8} showViewAll />
+        <FinalCtaSection />
       </main>
       <Footer />
     </>
   );
-};
-
-export default Home;
+}

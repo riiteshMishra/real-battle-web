@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Footer from "@/src/components/common/footer/Footer";
-import PageHero from "@/src/components/marketing/page-hero";
-import TournamentShowcase from "@/src/components/marketing/tournaments/tournament-showcase";
-import HowItWorks from "@/src/components/marketing/how-it-works";
-import FinalCta from "@/src/components/marketing/final-cta";
+import Footer from "@/src/components/layout/Footer";
+import PageHero from "@/src/components/ui/PageHero";
+import TournamentSection from "@/src/sections/tournaments/TournamentSection";
+import HowItWorksSection from "@/src/sections/how-it-works/HowItWorksSection";
+import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
 
 export const metadata: Metadata = {
@@ -60,15 +60,15 @@ const TournamentsPage = () => {
             <>
               Choose Your Format.
               <br />
-              <span className="text-gradient">Own The Match.</span>
+              <span className="text-emphasis">Own The Match.</span>
             </>
           }
           description="Solo pushes, squad classics, Clash Squad 4v4 aur free-entry scrims — ek hi board par. Format, schedule aur entry details pehle dekho, phir app mein slot lock karo."
         />
 
-        <TournamentShowcase variant="page" />
-        <HowItWorks />
-        <FinalCta />
+        <TournamentSection variant="page" />
+        <HowItWorksSection />
+        <FinalCtaSection />
       </main>
 
       <Footer />

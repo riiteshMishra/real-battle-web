@@ -9,7 +9,7 @@ import { externalLinksSection } from "./sections/external-links";
 import { availabilitySection } from "./sections/availability";
 import { liabilitySection } from "./sections/liability";
 import { changesSection } from "./sections/changes";
-import { DocumentSection } from "@/src/components/ui/doc/section/types";
+import { DocumentSection } from "@/src/components/doc/section/types";
 
 export const disclaimerData: {
   title: string;
