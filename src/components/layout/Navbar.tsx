@@ -3,13 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FiDownload, FiMenu, FiX } from "react-icons/fi";
-import { HiOutlineArrowUpRight } from "react-icons/hi2";
+import { FiDownload } from "react-icons/fi";
 import Logo from "@/src/components/layout/Logo";
-import { hasAndroidDownload, siteConfig } from "@/src/config/site";
-import { cn } from "@/lib/utils";
+import DesktopNavigation, {
+  type NavLink as DesktopNavLink,
+} from "@/src/components/layout/navbar/DesktopNavigation";
+import MobileNavigation, {
+  type MobileNavLink,
+} from "@/src/components/layout/navbar/MobileNavigation";
+import MobileMenuToggle from "@/src/components/layout/navbar/MobileMenuToggle";
 
-const primaryLinks = [
+const primaryLinks: DesktopNavLink[] = [
   { label: "Tournaments", href: "/tournaments" },
   { label: "How It Works", href: "/#how-it-works" },
   { label: "Rewards", href: "/#rewards" },
@@ -17,7 +21,7 @@ const primaryLinks = [
   { label: "FAQ", href: "/faq" },
 ];
 
-const mobileLinks = [
+const mobileLinks: MobileNavLink[] = [
   ...primaryLinks,
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact-us" },
@@ -41,14 +45,45 @@ export default function Navbar() {
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
+    const mainContent = document.getElementById("main-content");
+    mainContent?.setAttribute("inert", "");
+
+    const getFocusable = () =>
+      Array.from(
+        menuRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      );
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpenPath(null);
+      if (event.key === "Escape") {
+        setOpenPath(null);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = getFocusable();
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
 
     return () => {
       document.body.style.overflow = previous;
+      mainContent?.removeAttribute("inert");
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
@@ -68,114 +103,35 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-[100] border-b border-border-subtle bg-background/85 backdrop-blur-xl">
+    <header className="border-border-subtle bg-background/85 sticky top-0 z-100 border-b backdrop-blur-xl">
       <div className="container-page flex h-16 items-center justify-between gap-4 lg:h-20">
         <Logo />
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
-          {primaryLinks.map((link) => {
-            const isCurrent =
-              link.href === "/tournaments" || link.href === "/faq"
-                ? pathname === link.href
-                : false;
-
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isCurrent ? "page" : undefined}
-                className={cn(
-                  "rounded-full px-4 py-2 text-[13px] font-medium transition-colors",
-                  isCurrent
-                    ? "bg-brand-soft text-brand"
-                    : "text-muted-foreground hover:bg-elevated hover:text-foreground",
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+        <DesktopNavigation links={primaryLinks} pathname={pathname} />
 
         <div className="flex items-center gap-2">
           <Link
             href="/download"
-            className="group hidden items-center gap-2 rounded-full bg-brand-fill px-5 py-2.5 text-[13px] font-semibold text-brand-foreground transition-colors hover:bg-brand-hover sm:inline-flex"
+            className="group bg-brand-fill text-brand-foreground hover:bg-brand-hover hidden items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-semibold transition-colors sm:inline-flex"
           >
             <FiDownload aria-hidden="true" className="size-4" />
             Download App
           </Link>
 
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={() => setOpenPath(open ? null : pathname)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="flex size-10 cursor-pointer items-center justify-center rounded-full border border-border bg-card text-foreground transition-colors hover:border-dim hover:bg-elevated lg:hidden"
-          >
-            {open ? (
-              <FiX aria-hidden="true" className="size-5" />
-            ) : (
-              <FiMenu aria-hidden="true" className="size-5" />
-            )}
-          </button>
+          <MobileMenuToggle
+            open={open}
+            onToggle={() => setOpenPath(open ? null : pathname)}
+            toggleRef={toggleRef}
+          />
         </div>
       </div>
 
-      {open && (
-        <div
-          id="mobile-menu"
-          className="fixed inset-x-0 top-16 z-[99] h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border-subtle bg-background lg:hidden"
-        >
-          <nav aria-label="Mobile" className="container-page flex min-h-full flex-col py-8">
-            <ul className="flex flex-col">
-              {mobileLinks.map((link, index) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="group flex items-center justify-between border-b border-border-subtle py-4 text-xl font-medium text-foreground"
-                  >
-                    <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-[10px] tracking-[0.2em] text-dim">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      {link.label}
-                    </span>
-                    <HiOutlineArrowUpRight
-                      aria-hidden="true"
-                      className="size-4 text-dim transition-transform group-hover:-translate-y-0.5 group-hover:text-brand"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-auto pt-10">
-              <Link
-                href={hasAndroidDownload ? siteConfig.download.androidUrl : "/download"}
-                onClick={closeMenu}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-fill px-6 py-4 text-sm font-semibold text-brand-foreground transition-colors hover:bg-brand-hover"
-              >
-                <FiDownload aria-hidden="true" className="size-4" />
-                Get the Android app
-              </Link>
-
-              <p className="mt-4 text-center text-xs leading-6 text-muted-foreground">
-                Questions? Write to{" "}
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-foreground underline decoration-border underline-offset-4"
-                >
-                  {siteConfig.email}
-                </a>
-              </p>
-            </div>
-          </nav>
-        </div>
-      )}
+      <MobileNavigation
+        open={open}
+        links={mobileLinks as MobileNavLink[]}
+        menuRef={menuRef}
+        onClose={closeMenu}
+      />
     </header>
   );
 }

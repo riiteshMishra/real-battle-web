@@ -5,6 +5,7 @@ import PageHero from "@/src/components/ui/PageHero";
 import Reveal from "@/src/components/ui/Reveal";
 import ContactForm from "@/src/components/forms/ContactForm";
 import { siteConfig } from "@/src/config/site";
+import BreadcrumbJsonLd from "@/src/components/seo/BreadcrumbJsonLd";
 import {
   FiAlertCircle,
   FiArrowRight,
@@ -74,6 +75,12 @@ const supportScope = [
 const ContactPage = () => {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "Contact", url: `${siteConfig.url}/contact-us` },
+        ]}
+      />
       <main>
         <PageHero
           eyebrow="Support"

@@ -109,30 +109,28 @@ export default function FairPlaySection() {
               description="Competitive gaming only works when the rules mean something. Here's how Real Battle approaches match integrity — no exaggerated security claims."
             />
 
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {checks.map((check, index) => {
+            <Reveal className="mt-10 grid gap-5 sm:grid-cols-2">
+              {checks.map((check) => {
                 const Icon = check.icon;
 
                 return (
-                  <Reveal key={check.title} delay={Math.min(index * 70, 280)}>
-                    <div className="group flex h-full gap-3.5">
-                      <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl border border-border bg-card transition-colors group-hover:border-brand/40 group-hover:bg-brand-soft">
-                        <Icon aria-hidden="true" className="size-4 text-brand" />
-                      </span>
+                  <div key={check.title} className="group flex h-full gap-3.5">
+                    <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl border border-border bg-card transition-colors group-hover:border-brand/40 group-hover:bg-brand-soft">
+                      <Icon aria-hidden="true" className="size-4 text-brand" />
+                    </span>
 
-                      <div>
-                        <h3 className="text-[13px] font-semibold text-foreground">
-                          {check.title}
-                        </h3>
-                        <p className="mt-1.5 text-[12px] leading-5 text-muted-foreground">
-                          {check.description}
-                        </p>
-                      </div>
+                    <div>
+                      <h3 className="text-[13px] font-semibold text-foreground">
+                        {check.title}
+                      </h3>
+                      <p className="mt-1.5 text-[12px] leading-5 text-muted-foreground">
+                        {check.description}
+                      </p>
                     </div>
-                  </Reveal>
+                  </div>
                 );
               })}
-            </div>
+            </Reveal>
 
             <Reveal delay={120}>
               <p className="mt-8 rounded-xl border border-border-subtle bg-card px-4 py-3 text-[11px] leading-5 text-dim">

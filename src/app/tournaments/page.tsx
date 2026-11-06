@@ -5,6 +5,7 @@ import TournamentSection from "@/src/sections/tournaments/TournamentSection";
 import HowItWorksSection from "@/src/sections/how-it-works/HowItWorksSection";
 import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
+import BreadcrumbJsonLd from "@/src/components/seo/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Tournaments",
@@ -48,6 +49,12 @@ const structuredData = {
 const TournamentsPage = () => {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "Tournaments", url: `${siteConfig.url}/tournaments` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

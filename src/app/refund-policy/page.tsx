@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     images: ["/opengraph-image"],
-    card: "summary",
+    card: "summary_large_image",
     title: "Refund Policy",
     description:
       "Eligibility, refund conditions, cancellations and entry fee procedures for Real Battle tournaments.",

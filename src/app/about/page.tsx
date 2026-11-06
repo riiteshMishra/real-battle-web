@@ -6,6 +6,7 @@ import Reveal from "@/src/components/ui/Reveal";
 import SectionHeading from "@/src/components/ui/SectionHeading";
 import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
+import BreadcrumbJsonLd from "@/src/components/seo/BreadcrumbJsonLd";
 import {
   FiArrowRight,
   FiCheckCircle,
@@ -84,6 +85,12 @@ const principles = [
 const AboutPage = () => {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "About", url: `${siteConfig.url}/about` },
+        ]}
+      />
       <main>
         <PageHero
           eyebrow="About Real Battle"

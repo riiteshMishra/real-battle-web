@@ -1,0 +1,44 @@
+# Real Battle
+
+> Real Battle is a competitive Free Fire tournament platform for Indian players. Join solo, squad and Clash Squad battles, get room details in the app, and track verified results.
+
+## About
+
+Real Battle is a competitive Free Fire tournament platform built for Indian players. Tournament formats, entry fees and reward rules are published before a player joins. Results are checked against match proof before rewards are released.
+
+## Public Pages
+
+- [Homepage](https://realbattle.in/)
+- [About](https://realbattle.in/about)
+- [Tournaments](https://realbattle.in/tournaments)
+- [Download](https://realbattle.in/download)
+- [FAQ](https://realbattle.in/faq)
+- [Contact](https://realbattle.in/contact-us)
+- [Privacy Policy](https://realbattle.in/privacy-policy)
+- [Terms of Service](https://realbattle.in/terms)
+- [Refund Policy](https://realbattle.in/refund-policy)
+- [Disclaimer](https://realbattle.in/disclaimer)
+
+## Tournament Information
+
+Tournament cards on the website currently use clearly labelled sample/demo data. They are not live tournament inventory. Live tournament data will replace them once the verified tournament API is connected.
+
+## App Download
+
+The official download page is https://realbattle.in/download. The Android APK link, version, file size and checksum are published only after the production build is verified. Real Battle does not distribute builds through third-party mirrors.
+
+## Policies
+
+- [Privacy Policy](https://realbattle.in/privacy-policy)
+- [Terms of Service](https://realbattle.in/terms)
+- [Refund Policy](https://realbattle.in/refund-policy)
+- [Cookie Policy](https://realbattle.in/cookies)
+- [Disclaimer](https://realbattle.in/disclaimer)
+
+## Important Information
+
+- Support email: realbattleofficial@gmail.com
+- Official download source: realbattle.in
+- Social channels are added only after ownership is verified.
+- Real Battle is intended for players aged 18 and above unless a specific tournament states otherwise.
+- Rewards are not guaranteed and depend on tournament rules, performance and verification.

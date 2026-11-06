@@ -5,6 +5,7 @@ import PageHero from "@/src/components/ui/PageHero";
 import FaqSection from "@/src/sections/faq/FaqSection";
 import Reveal from "@/src/components/ui/Reveal";
 import { siteConfig } from "@/src/config/site";
+import BreadcrumbJsonLd from "@/src/components/seo/BreadcrumbJsonLd";
 import { faqData } from "@/src/data/faq-data";
 import { FiArrowRight, FiMail, FiMessageSquare } from "react-icons/fi";
 
@@ -48,6 +49,12 @@ const structuredData = {
 const FaqPage = () => {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "FAQ", url: `${siteConfig.url}/faq` },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

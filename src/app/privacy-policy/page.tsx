@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
   twitter: {
     images: ["/opengraph-image"],
-    card: "summary",
+    card: "summary_large_image",
     title: "Privacy Policy",
     description:
       "Learn how Real Battle collects, uses, stores, and protects your information for Free Fire tournaments and online gaming services.",

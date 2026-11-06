@@ -33,7 +33,7 @@ const priorities: Record<string, number> = {
 const sitemap = (): MetadataRoute.Sitemap =>
   routes.map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-11-06T00:00:00.000Z"),
     changeFrequency: route === "" || route === "/tournaments" ? "daily" : "monthly",
     priority: priorities[route] ?? 0.5,
   }));

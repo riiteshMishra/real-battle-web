@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
   twitter: {
     images: ["/opengraph-image"],
-    card: "summary",
+    card: "summary_large_image",
 
     title: "Terms of Service",
 

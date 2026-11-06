@@ -1,14 +1,14 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { FiAlertCircle, FiArrowRight } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { getTournaments } from "@/src/services/tournaments";
 import ButtonLink from "@/src/components/ui/ButtonLink";
 import Container from "@/src/components/ui/Container";
-import Reveal from "@/src/components/ui/Reveal";
 import SectionHeading from "@/src/components/ui/SectionHeading";
 import { EmptyState, ErrorState } from "@/src/components/ui/States";
 import TournamentFilters from "@/src/sections/tournaments/TournamentFilters";
+import TournamentDemoNotice from "@/src/sections/tournaments/TournamentDemoNotice";
 import TournamentGrid from "@/src/sections/tournaments/TournamentGrid";
 import { useTournamentFilters } from "@/src/hooks/useTournamentFilters";
 
@@ -112,13 +112,8 @@ export default function TournamentSection({
           <TournamentFilters value={filter} onChange={selectFilter} />
         </div>
 
-        {data?.isDemo && (
-          <Reveal className="mt-4">
-            <p className="flex items-start gap-2 rounded-xl border border-brand/25 bg-brand-soft px-4 py-3 text-[12px] leading-6 text-brand">
-              <FiAlertCircle aria-hidden="true" className="mt-1 size-4 shrink-0" />
-              <span>{data.note}</span>
-            </p>
-          </Reveal>
+        {data?.isDemo && data.note && (
+          <TournamentDemoNotice note={data.note} />
         )}
 
         {isLoading && <GridSkeleton />}

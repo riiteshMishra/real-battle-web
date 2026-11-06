@@ -41,3 +41,6 @@ realbattle
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SYSTEM FOLDERS
+.bin

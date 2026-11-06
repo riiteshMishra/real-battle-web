@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
   twitter: {
     images: ["/opengraph-image"],
-    card: "summary",
+    card: "summary_large_image",
     title: "Cookie Policy",
     description:
       "Learn how Real Battle uses essential cookies for authentication, secure sessions, and account access.",

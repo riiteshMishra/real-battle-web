@@ -52,11 +52,11 @@ export default function FaqSection({
           </h2>
         )}
 
-        <div className="mx-auto mt-10 max-w-3xl">
+        <Reveal className="mx-auto mt-10 max-w-3xl">
           <div className="space-y-3">
-            {items.map((faq, index) => (
-              <Reveal key={faq.id} delay={Math.min(index * 40, 240)}>
+            {items.map((faq) => (
                 <FaqItem
+                  key={faq.id}
                   question={faq.question}
                   answer={faq.answer}
                   isOpen={openId === faq.id}
@@ -64,7 +64,6 @@ export default function FaqSection({
                   buttonId={`${baseId}-trigger-${faq.id}`}
                   panelId={`${baseId}-panel-${faq.id}`}
                 />
-              </Reveal>
             ))}
           </div>
 
@@ -82,7 +81,7 @@ export default function FaqSection({
               </Link>
             </div>
           )}
-        </div>
+        </Reveal>
       </Container>
     </section>
   );

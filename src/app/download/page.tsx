@@ -7,6 +7,7 @@ import SectionHeading from "@/src/components/ui/SectionHeading";
 import FaqSection from "@/src/sections/faq/FaqSection";
 import FinalCtaSection from "@/src/sections/final-cta/FinalCtaSection";
 import { siteConfig } from "@/src/config/site";
+import BreadcrumbJsonLd from "@/src/components/seo/BreadcrumbJsonLd";
 import {
   FiAlertTriangle,
   FiCheckCircle,
@@ -100,6 +101,12 @@ const safetyNotes = [
 const DownloadPage = () => {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "Download", url: `${siteConfig.url}/download` },
+        ]}
+      />
       <main>
         <PageHero
           eyebrow="Android app"
@@ -237,13 +244,12 @@ const DownloadPage = () => {
               description="A few practical checks that protect your account and your device."
             />
 
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {safetyNotes.map((note, index) => {
+            <Reveal className="mt-10 grid gap-5 md:grid-cols-3">
+              {safetyNotes.map((note) => {
                 const Icon = note.icon;
 
                 return (
-                  <Reveal key={note.title} delay={index * 80}>
-                    <div className="h-full rounded-2xl border border-border bg-card p-6">
+                  <div key={note.title} className="h-full rounded-2xl border border-border bg-card p-6">
                       <span className="flex size-10 items-center justify-center rounded-xl border border-border bg-card">
                         <Icon
                           aria-hidden="true"
@@ -259,10 +265,9 @@ const DownloadPage = () => {
                         {note.description}
                       </p>
                     </div>
-                  </Reveal>
                 );
               })}
-            </div>
+            </Reveal>
           </div>
         </section>
 

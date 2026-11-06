@@ -9,6 +9,13 @@ import type { SendMessagePayload } from "./types";
  */
 export const sendMessage = async (payload: SendMessagePayload) => {
   const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ?? "/contact";
+  const baseURL = process.env.NEXT_PUBLIC_API_URL ?? "";
+  const isAbsoluteEndpoint = /^https?:\/\//i.test(endpoint);
+
+  // Never attempt a request when there is no verified backend to receive it.
+  if (!isAbsoluteEndpoint && !baseURL) {
+    throw new Error("Contact endpoint is not configured");
+  }
 
   try {
     const { data } = await http.post(endpoint, payload);

@@ -12,16 +12,14 @@ export default function TournamentGrid({
   isDemo,
 }: TournamentGridProps) {
   return (
-    <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-      {tournaments.map((tournament, index) => (
-        <Reveal
+    <Reveal className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {tournaments.map((tournament) => (
+        <TournamentCard
           key={tournament.id}
-          delay={Math.min(index * 60, 240)}
-          className="h-full"
-        >
-          <TournamentCard tournament={tournament} isDemo={isDemo} />
-        </Reveal>
+          tournament={tournament}
+          isDemo={isDemo}
+        />
       ))}
-    </div>
+    </Reveal>
   );
 }

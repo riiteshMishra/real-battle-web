@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
   twitter: {
     images: ["/opengraph-image"],
-    card: "summary",
+    card: "summary_large_image",
     title: "Disclaimer",
     description:
       "Important information about Real Battle gaming services, tournaments, and platform limitations.",

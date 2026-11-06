@@ -46,8 +46,21 @@ export default function ContactForm() {
     defaultValues: { name: "", email: "", subject: "", message: "" },
   });
 
+  const isConfigured = Boolean(
+    process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ||
+      process.env.NEXT_PUBLIC_API_URL,
+  );
+
   const onSubmit = async (data: ContactFormData) => {
     setStatus({ type: "idle", message: "" });
+
+    if (!isConfigured) {
+      setStatus({
+        type: "error",
+        message: `The contact form is not connected yet. Please email ${siteConfig.email}.`,
+      });
+      return;
+    }
 
     try {
       const response = await sendMessage(data);
@@ -108,6 +121,24 @@ export default function ContactForm() {
             )}
 
             <span>{status.message}</span>
+          </div>
+        )}
+
+        {!isConfigured && (
+          <div
+            role="status"
+            className="mb-6 flex items-start gap-3 rounded-xl border border-border-subtle bg-card p-4 text-sm text-muted-foreground"
+          >
+            <span>
+              The contact form is being connected. Until then, please email{" "}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-semibold text-foreground underline decoration-border underline-offset-4 hover:decoration-brand"
+              >
+                {siteConfig.email}
+              </a>
+              .
+            </span>
           </div>
         )}
 
@@ -226,7 +257,7 @@ export default function ContactForm() {
 
           <Button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !isConfigured}
             className="group h-12 w-full cursor-pointer gap-2 rounded-xl text-sm font-semibold"
           >
             {isSubmitting ? (

@@ -3,12 +3,35 @@
 import { useEffect, useRef } from "react";
 
 /**
- * One-shot scroll reveal.
+ * One-shot scroll reveal, backed by a single shared IntersectionObserver.
  *
- * IntersectionObserver does the heavy lifting, but browser throttling and
- * occluded windows can delay its first callback. A cheap rect check on mount
- * and a passive scroll fallback guarantee content is never left invisible.
+ * A module-level observer avoids attaching one observer (and scroll/resize
+ * listeners) per Reveal instance, which was the main source of main-thread
+ * work on the homepage. Reduced-motion users get the visible state immediately.
  */
+type RevealCallback = () => void;
+
+const callbacks = new Map<Element, RevealCallback>();
+let sharedObserver: IntersectionObserver | null = null;
+
+function getObserver(): IntersectionObserver | null {
+  if (typeof window === "undefined") return null;
+  if (sharedObserver) return sharedObserver;
+
+  sharedObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const cb = callbacks.get(entry.target);
+        if (cb) cb();
+      }
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+  );
+
+  return sharedObserver;
+}
+
 export function useReveal<T extends HTMLElement = HTMLDivElement>() {
   const ref = useRef<T>(null);
 
@@ -21,49 +44,29 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
       return;
     }
 
-    let frame = 0;
+    const observer = getObserver();
+    if (!observer) return;
 
     const reveal = () => {
       node.classList.add("is-visible");
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      observer.unobserve(node);
+      callbacks.delete(node);
     };
 
-    const isInView = () => {
-      const rect = node.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
-    };
+    callbacks.set(node, reveal);
 
-    const onScroll = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        if (isInView()) reveal();
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) reveal();
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-
-    if (isInView()) {
+    // Reveal immediately if already in view.
+    const rect = node.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
       reveal();
       return;
     }
 
     observer.observe(node);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
 
     return () => {
-      if (frame) window.cancelAnimationFrame(frame);
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      observer.unobserve(node);
+      callbacks.delete(node);
     };
   }, []);
 
