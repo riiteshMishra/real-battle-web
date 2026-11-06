@@ -51,6 +51,11 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
+
   robots: {
     index: true,
     follow: true,
@@ -101,7 +106,7 @@ const structuredData = {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.email,
-      logo: `${siteConfig.url}/icon.svg`,
+      logo: `${siteConfig.url}/realbattle.svg`,
     },
     {
       "@type": "WebSite",
@@ -138,7 +143,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
 
-        <Toaster position="top-right" theme="dark" richColors />
+        <Toaster
+          position="top-right"
+          theme="dark"
+          richColors
+          className="select-none"
+        />
 
         <QueryProvider>
           <Navbar />
