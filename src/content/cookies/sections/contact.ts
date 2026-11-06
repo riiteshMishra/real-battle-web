@@ -4,7 +4,7 @@ export const contactSection = {
   type: "contact" as const,
 
   content: [
-    "If you have questions or concerns about our use of cookies or this Cookie Policy, you can contact us through the following channel.",
+    "Agar aapke paas hamare cookies use ya is Cookie Policy ke baare mein questions ya concerns hain, to aap following channel ke through humse contact kar sakte hain.",
     "Privacy Concerns: realbattleofficial@gmail.com",
   ],
 };

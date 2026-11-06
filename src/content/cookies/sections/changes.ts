@@ -4,8 +4,8 @@ export const changesSection = {
   type: "paragraphs" as const,
 
   content: [
-    "We may update this Cookie Policy from time to time to reflect changes to our services, authentication systems, technologies, legal requirements, or data practices.",
-    "When we make changes, we will update the Last Updated date displayed on this page.",
-    "We encourage you to review this Cookie Policy periodically to stay informed about how Real Battle uses cookies.",
+    "Hum apni services, authentication systems, technologies, legal requirements ya data practices mein changes reflect karne ke liye kabhi kabhi ye Cookie Policy update kar sakte hain.",
+    "Jab hum changes karte hain, to hum is page par displayed Last Updated date update karenge.",
+    "Hum aapko encourage karte hain ki Real Battle cookies kaise use karta hai iske baare mein informed rehne ke liye ye Cookie Policy periodically review karein.",
   ],
 };

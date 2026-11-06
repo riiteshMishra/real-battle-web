@@ -4,8 +4,8 @@ export const cookieInformationSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Authentication cookies may contain a unique session or authentication identifier that allows Real Battle to associate your browser with your authenticated account session.",
-    "Real Battle does not need to store your password directly in an authentication cookie.",
-    "The exact cookie name, value, and technical configuration may change as we improve our authentication and security systems.",
+    "Authentication cookies mein unique session ya authentication identifier ho sakta hai jo Real Battle ko aapke browser ko aapki authenticated account session se associate karne deta hai.",
+    "Real Battle ko aapka password directly authentication cookie mein store karne ki zarurat nahi hai.",
+    "Exact cookie name, value aur technical configuration humare authentication aur security systems improve karte waqt change ho sakta hai.",
   ],
 };

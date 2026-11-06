@@ -14,6 +14,8 @@ const routes = [
   "/refund-policy",
   "/cookies",
   "/disclaimer",
+  "/player-responsibilities",
+  "/tournament-rules",
 ];
 
 const priorities: Record<string, number> = {
@@ -28,6 +30,8 @@ const priorities: Record<string, number> = {
   "/refund-policy": 0.3,
   "/cookies": 0.2,
   "/disclaimer": 0.2,
+  "/player-responsibilities": 0.3,
+  "/tournament-rules": 0.4,
 };
 
 const sitemap = (): MetadataRoute.Sitemap =>

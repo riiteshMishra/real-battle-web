@@ -4,7 +4,7 @@ export const introductionSection = {
   type: "paragraphs" as const,
 
   content: [
-    "This Cookie Policy explains how Real Battle uses cookies and similar technologies when you access or use our website, gaming platform, tournament services, and related features.",
-    "Real Battle currently uses cookies primarily for essential authentication and session management. We do not use authentication cookies for advertising or behavioral tracking.",
+    "Ye Cookie Policy explain karti hai ki jab aap hamari website, gaming platform, tournament services aur related features access ya use karte hain to Real Battle cookies aur similar technologies kaise use karta hai.",
+    "Real Battle currently cookies primarily essential authentication aur session management ke liye use karta hai. Hum authentication cookies advertising ya behavioral tracking ke liye use nahi karte.",
   ],
 };

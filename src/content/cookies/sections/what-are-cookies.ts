@@ -4,7 +4,7 @@ export const whatAreCookiesSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Cookies are small pieces of information stored by your web browser on your device when you visit a website.",
-    "They allow a website to remember information about your session and help the website recognize your browser during subsequent requests.",
+    "Cookies chhoti information pieces hain jo aapke web browser aapke device par tab store karta hai jab aap kisi website visit karte hain.",
+    "Ye website ko aapke session ke baare mein information remember karne aur subsequent requests ke dauran aapke browser ko recognize karne mein help karte hain.",
   ],
 };

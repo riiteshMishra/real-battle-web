@@ -4,7 +4,7 @@ export const introductionSection = {
   type: "paragraphs" as const,
 
   content: [
-    "This Disclaimer explains important limitations and conditions relating to the information, content, features, tournaments, and services provided through Real Battle.",
-    "By accessing or using Real Battle, you acknowledge that you have read and understood this Disclaimer together with our Terms of Service and other applicable policies.",
+    "Ye Disclaimer Real Battle ke through provide kiye jane wale information, content, features, tournaments aur services se related important limitations aur conditions explain karta hai.",
+    "Real Battle access ya use karke, aap acknowledge karte hain ki aapne ye Disclaimer hamare Terms of Service aur dusri applicable policies ke saath read aur samjha hai.",
   ],
 };

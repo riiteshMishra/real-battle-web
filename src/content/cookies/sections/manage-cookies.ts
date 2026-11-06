@@ -4,7 +4,7 @@ export const manageCookiesSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Most modern web browsers allow you to view, block, delete, or otherwise manage cookies through their settings.",
-    "You can choose to restrict cookies through your browser settings. However, blocking essential authentication cookies may prevent Real Battle from keeping you signed in or providing certain account-related features.",
+    "Zyadatar modern web browsers aapko apne settings ke through cookies view, block, delete ya otherwise manage karne dete hain.",
+    "Aap browser settings ke through cookies restrict karne ka choice kar sakte hain. However, essential authentication cookies block karne se Real Battle aapko signed in rakhne ya certain account-related features provide karne se rok sakta hai.",
   ],
 };

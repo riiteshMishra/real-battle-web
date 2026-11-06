@@ -23,6 +23,8 @@ const legalLinks = [
   { label: "Terms of Service", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Refund Policy", href: "/refund-policy" },
+  { label: "Player Responsibilities", href: "/player-responsibilities" },
+  { label: "Tournament Rules", href: "/tournament-rules" },
   { label: "Cookie Policy", href: "/cookies" },
   { label: "Disclaimer", href: "/disclaimer" },
 ];

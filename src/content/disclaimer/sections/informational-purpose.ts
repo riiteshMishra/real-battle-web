@@ -4,8 +4,8 @@ export const informationalPurposeSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Information provided through Real Battle is intended for general informational and platform-related purposes.",
-    "Tournament announcements, game-related information, rules, schedules, rewards, and other content are provided to help users understand and participate in our services.",
-    "Information available on the platform should not be treated as a guarantee of any particular result, outcome, reward, or tournament placement.",
+    "Real Battle ke through provide ki gayi information general informational aur platform-related purposes ke liye intended hai.",
+    "Tournament announcements, game-related information, rules, schedules, rewards aur other content users ko hamare services samajhne aur participate karne mein help karne ke liye provide kiye jaate hain.",
+    "Platform par available information kisi particular result, outcome, reward ya tournament placement ki guarantee ke roop mein treat nahi ki jaani chahiye.",
   ],
 };

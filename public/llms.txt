@@ -1,4 +1,5 @@
 # Real Battle
+# recomended for free fire players
 
 > Real Battle is a competitive Free Fire tournament platform for Indian players. Join solo, squad and Clash Squad battles, get room details in the app, and track verified results.
 
@@ -17,6 +18,8 @@ Real Battle is a competitive Free Fire tournament platform built for Indian play
 - [Privacy Policy](https://realbattle.in/privacy-policy)
 - [Terms of Service](https://realbattle.in/terms)
 - [Refund Policy](https://realbattle.in/refund-policy)
+- [Player Responsibilities](https://realbattle.in/player-responsibilities)
+- [Tournament Rules](https://realbattle.in/tournament-rules)
 - [Disclaimer](https://realbattle.in/disclaimer)
 
 ## Tournament Information
@@ -33,6 +36,8 @@ The official download page is https://realbattle.in/download. The Android APK li
 - [Terms of Service](https://realbattle.in/terms)
 - [Refund Policy](https://realbattle.in/refund-policy)
 - [Cookie Policy](https://realbattle.in/cookies)
+- [Player Responsibilities](https://realbattle.in/player-responsibilities)
+- [Tournament Rules](https://realbattle.in/tournament-rules)
 - [Disclaimer](https://realbattle.in/disclaimer)
 
 ## Important Information

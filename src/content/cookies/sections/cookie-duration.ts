@@ -4,8 +4,8 @@ export const cookieDurationSection = {
   type: "paragraphs" as const,
 
   content: [
-    "The duration of an authentication cookie depends on the session and authentication configuration used by Real Battle.",
-    "Some cookies may expire when the browser session ends, while others may remain available for a defined period to maintain a user's authenticated session.",
-    "We may change cookie expiration periods when necessary for security, authentication, or platform functionality.",
+    "Authentication cookie ki duration Real Battle ke use hone wale session aur authentication configuration par depend karti hai.",
+    "Kuch cookies browser session end hone par expire ho sakti hain, jabki dusri defined period ke liye available rah sakti hain user ki authenticated session maintain karne ke liye.",
+    "Hum security, authentication ya platform functionality ke liye jarurat padne par cookie expiration periods change kar sakte hain.",
   ],
 };

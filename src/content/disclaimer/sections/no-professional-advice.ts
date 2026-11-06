@@ -4,7 +4,7 @@ export const noProfessionalAdviceSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Content available through Real Battle does not constitute legal, financial, investment, medical, or other professional advice.",
-    "If you require professional advice regarding a matter outside the scope of our gaming and tournament services, you should consult an appropriately qualified professional.",
+    "Real Battle ke through available content legal, financial, investment, medical ya dusre professional advice constitute nahi karta.",
+    "Agar aapko hamare gaming aur tournament services ke scope ke bahar kisi matter ke liye professional advice chahiye, to aap appropriately qualified professional se consult karein.",
   ],
 };

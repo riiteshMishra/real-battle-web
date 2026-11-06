@@ -16,37 +16,37 @@ const checks = [
     icon: FiFileText,
     title: "Rules before registration",
     description:
-      "Format, scoring, entry fee and match schedule are published on the tournament before you join.",
+      "Tournament join karne se pehle format, scoring, entry fee aur match schedule tournament par publish kiye jaate hain.",
   },
   {
     icon: FiCheckCircle,
     title: "Result verification",
     description:
-      "Players may be asked for screenshots, recordings, match results or UID proof. Results are checked before rewards.",
+      "Players se screenshots, recordings, match results ya UID proof maanga ja sakta hai. Rewards se pehle results check kiye jaate hain.",
   },
   {
     icon: FiClock,
     title: "Dispute window",
     description:
-      "Match issues are raised through the designated support channel within the time window set for that tournament.",
+      "Match issues designated support channel ke through tournament ke liye set time window ke andar raise kiye jaate hain.",
   },
   {
     icon: FiUserCheck,
     title: "Administrative review",
     description:
-      "Admins review available evidence and can adjust scores, reverse results, disqualify entries or apply penalties.",
+      "Admins available evidence review karte hain aur scores adjust, results reverse, entries disqualify ya penalties apply kar sakte hain.",
   },
   {
     icon: FiSmartphone,
     title: "Device & eligibility rules",
     description:
-      "Some events may carry device, game-version, region, identity or age requirements. These are listed per tournament.",
+      "Kuch events mein device, game-version, region, identity ya age requirements ho sakte hain. Ye per tournament list kiye jaate hain.",
   },
   {
     icon: FiLock,
     title: "Account integrity",
     description:
-      "Account sharing, impersonation, collusion and match manipulation can lead to suspension or reward cancellation.",
+      "Account sharing, impersonation, collusion aur match manipulation se suspension ya reward cancellation ho sakta hai.",
   },
 ] as const;
 
@@ -106,7 +106,7 @@ export default function FairPlaySection() {
                   <span className="text-emphasis">Not Shortcuts.</span>
                 </span>
               }
-              description="Competitive gaming only works when the rules mean something. Here's how Real Battle approaches match integrity — no exaggerated security claims."
+              description="Competitive gaming tabhi kaam karta hai jab rules ka meaning ho. Yahan Real Battle match integrity ko kaise approach karta hai — bina exaggerated security claims ke."
             />
 
             <Reveal className="mt-10 grid gap-5 sm:grid-cols-2">
@@ -134,9 +134,7 @@ export default function FairPlaySection() {
 
             <Reveal delay={120}>
               <p className="mt-8 rounded-xl border border-border-subtle bg-card px-4 py-3 text-[11px] leading-5 text-dim">
-                Real Battle does not claim hardware-level anti-cheat, HWID
-                locking or 100% cheat prevention. Enforcement is based on the
-                published rules and the evidence available for each match.
+                Real Battle hardware-level anti-cheat, HWID locking ya 100% cheat prevention ka claim nahi karta. Enforcement published rules aur har match ke available evidence par based hota hai.
               </p>
             </Reveal>
           </div>

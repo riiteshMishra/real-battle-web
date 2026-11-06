@@ -4,10 +4,10 @@ export const disabledCookiesSection = {
   type: "list" as const,
 
   items: [
-    "You may be unable to sign in to your Real Battle account.",
-    "Your authenticated session may not be maintained.",
-    "Certain account features may become unavailable.",
-    "Tournament-related features that require authentication may not function correctly.",
-    "You may need to sign in again after changing your browser cookie settings.",
+    "Aap apne Real Battle account mein sign in nahi kar pa sakte.",
+    "Aapki authenticated session maintain nahi ho sakti.",
+    "Certain account features unavailable ho sakti hain.",
+    "Authentication require karne wale tournament-related features sahi se function nahi kar sakte.",
+    "Browser cookie settings change karne ke baad aapko phir se sign in karna pad sakta hai.",
   ],
 };

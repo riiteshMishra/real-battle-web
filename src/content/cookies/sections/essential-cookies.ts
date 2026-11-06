@@ -4,7 +4,7 @@ export const essentialCookiesSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Real Battle uses essential cookies that are necessary for authentication, session management, security, and core account functionality.",
-    "Because these cookies support essential platform functionality, disabling them may prevent you from signing in or using certain authenticated features.",
+    "Real Battle essential cookies use karta hai jo authentication, session management, security aur core account functionality ke liye necessary hain.",
+    "Kyunki ye cookies essential platform functionality support karte hain, inhe disable karne se aap sign in nahi kar pa sakte ya certain authenticated features use nahi kar pa sakte.",
   ],
 };

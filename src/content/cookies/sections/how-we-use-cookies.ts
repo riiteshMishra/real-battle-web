@@ -4,11 +4,11 @@ export const howWeUseCookiesSection = {
   type: "list" as const,
 
   items: [
-    "Authenticate users and maintain signed-in sessions.",
-    "Help our servers recognize an authenticated user.",
-    "Maintain secure access to account-related features.",
-    "Support tournament participation and account functionality.",
-    "Help protect authenticated sessions from unauthorized use.",
-    "Maintain the reliable operation of essential platform features.",
+    "Users authenticate karna aur signed-in sessions maintain karna.",
+    "Hamare servers ko authenticated user recognize karne mein help karna.",
+    "Account-related features ka secure access maintain karna.",
+    "Tournament participation aur account functionality support karna.",
+    "Authenticated sessions ko unauthorized use se protect karna.",
+    "Essential platform features ka reliable operation maintain karna.",
   ],
 };

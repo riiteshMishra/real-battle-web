@@ -4,8 +4,8 @@ export const thirdPartyCookiesSection = {
   type: "paragraphs" as const,
 
   content: [
-    "Real Battle does not currently use third-party advertising or behavioral tracking cookies as part of its authentication system.",
-    "Some third-party services used by the platform may introduce their own cookies or similar technologies when their functionality is integrated into our website.",
-    "If we introduce analytics, advertising, social media, or other third-party tracking technologies in the future, we may update this Cookie Policy to explain their use.",
+    "Real Battle currently third-party advertising ya behavioral tracking cookies apne authentication system ka part ke roop mein use nahi karta.",
+    "Platform dwara use kiye jane wale kuch third-party services apne khud ke cookies ya similar technologies introduce kar sakte hain jab unki functionality hamari website mein integrate hoti hai.",
+    "Agar future mein hum analytics, advertising, social media ya dusri third-party tracking technologies introduce karte hain, to hum inka use explain karne ke liye ye Cookie Policy update kar sakte hain.",
   ],
 };
