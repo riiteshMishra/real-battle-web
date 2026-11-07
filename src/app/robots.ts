@@ -5,7 +5,7 @@ const robots = (): MetadataRoute.Robots => ({
     {
       userAgent: "*",
       allow: "/",
-      disallow: ["/dashboard"],
+      disallow: ["/dashboard", "/admin", "/api", "/private"],
     },
   ],
   sitemap: "https://realbattle.in/sitemap.xml",

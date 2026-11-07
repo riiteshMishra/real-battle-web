@@ -152,7 +152,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 
         <QueryProvider>
           <Navbar />
-          <div id="main-content" tabIndex={-1} className="outline-none">
+          <div id="main-content" tabIndex={-1} className="outline-none pb-20 lg:pb-0">
             {children}
           </div>
         </QueryProvider>
